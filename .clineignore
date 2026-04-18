@@ -1,0 +1,93 @@
+# Build outputs
+bin/
+obj/
+obj/Debug/
+obj/Release/
+
+# VS Code
+.vscode/
+
+# Visual Studio user files
+*.csproj.user
+*.vbproj.user
+*.fsproj.user
+*.esproj
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio temp/cache files
+.vs/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Publish output
+publish/
+PublishProfiles/
+
+# Secrets & environment
+*.env
+.env.*
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Logs
+*.log
+logs
+
+.github/
+.codex/
+bin/
+DockerCompose/
+docs/
+overrides/
+.deployment
+.dockerignote
+.editorconfig
+.env
+.gitattributes
+.gitigote
+argoDeploy.json
+azureDeploy.json
+azureDeployPlatformAndFrontend.json
+azureDeployPlatformAndFrontend.md
+azureDeployWebAppForContainer.json
+build.ps1
+build.sh
+cleansolution.sh
+cloudDeploy.json
+cve-ignore.json
+deploy.cmd
+docker-compose.ci.build.yml
+docker-compose.ci.build.yml
+docker-compose.override.yml
+docker-compose.yml
+*.png
+*.ico
+
+# Cake - Uncomment if you are using it
+# tools/
+distapp_data/
+/src/VirtoCommerce.Platform.Web/wwwroot/modules
+/src/VirtoCommerce.Platform.Web/wwwroot/lib
+/src/VirtoCommerce.Platform.Web/wwwroot/app_data
+/src/VirtoCommerce.Platform.Web/wwwroot/maps
+/src/VirtoCommerce.Platform.Web/wwwroot/cms-content
+/src/VirtoCommerce.Platform.Web/wwwroot/assets
+/src/VirtoCommerce.Platform.Web/wwwroot/

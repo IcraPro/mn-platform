@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.SearchModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.SearchModule.Web.Controllers.Api.SearchIndexationModuleController.GetDocumentIndexAsync(System.String,System.String)">
+            <summary>
+            Get search index for specified document type and document id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SearchModule.Web.Controllers.Api.SearchIndexationModuleController.IndexDocuments(VirtoCommerce.SearchModule.Core.Model.IndexingOptions[])">
+            <summary>
+            Run indexation process for specified options
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

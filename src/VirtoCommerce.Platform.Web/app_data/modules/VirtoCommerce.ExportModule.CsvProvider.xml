@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.ExportModule.CsvProvider</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.ExportModule.CsvProvider.CsvProviderConfiguration">
+            <summary>
+            Configuration for comma separated values export provider
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.CsvProvider.CsvProviderConfiguration.Delimiter">
+            <summary>
+            Delimiter of fields
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.CsvProvider.CsvProviderConfiguration.Encoding">
+            <summary>
+            Name of the codepage should be used.  
+            Full list of codepages can be found at https://docs.microsoft.com/en-US/dotnet/api/system.text.encoding?view=netcore-3.1
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.CsvProvider.MetadataFilteredMap`1">
+            <summary>
+            Custom ClassMap implementation which includes type properties. Supports nested properties.
+            Does not map <see cref="T:System.Collections.Generic.IEnumerable`1"/> as these are not representable in CSV structure in suitable manner.
+            </summary>
+            <typeparam name="T">Mapped type.</typeparam>
+        </member>
+    </members>
+</doc>

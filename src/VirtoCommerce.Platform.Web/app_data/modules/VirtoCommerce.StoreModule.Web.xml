@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.StoreModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.SearchStores(VirtoCommerce.StoreModule.Core.Model.Search.StoreSearchCriteria)">
+            <summary>
+            Search stores
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.GetStores">
+            <summary>
+            Get all stores
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.GetStoreById(System.String,System.String)">
+            <summary>
+            Get store by id
+            </summary>
+            <param name="id">Store id</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.GetStoreByOuterId(System.String,System.String)">
+            <summary>
+            Gets store by outer id.
+            </summary>
+            <remarks>Gets store by outer id (integration key) with full information loaded</remarks>
+            <param name="outerId">Store outer id</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.CreateStore(VirtoCommerce.StoreModule.Core.Model.Store)">
+            <summary>
+            Create store
+            </summary>
+            <param name="store">Store</param>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.UpdateStore(VirtoCommerce.StoreModule.Core.Model.Store)">
+            <summary>
+            Update store
+            </summary>
+            <param name="store">Store</param>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.DeleteStore(System.String[])">
+            <summary>
+            Delete stores
+            </summary>
+            <param name="ids">Ids of store that needed to delete</param>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.SendDynamicNotificationToStoreEmail(VirtoCommerce.StoreModule.Web.Model.SendDynamicNotificationRequest)">
+            <summary>
+            Send dynamic notification (contains custom list of properties) to store or administrator email 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.GetLoginOnBehalfInfo(System.String,System.String)">
+            <summary>
+            Check if given contact has login on behalf permission
+            </summary>
+            <param name="storeId">Store ID</param>
+            <param name="id">Contact ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.GetUserAllowedStores(System.String)">
+            <summary>
+            Returns list of stores which user can sign in
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Web.Controllers.Api.StoreModuleController.PatchStore(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.StoreModule.Core.Model.Store})">
+            <summary>
+            Partial update for the specified store by id
+            </summary>
+            <param name="id">Store id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+        </member>
+        <member name="T:VirtoCommerce.StoreModule.Web.Model.LoginOnBehalfInfo">
+            <summary>
+            Represent result for checking of possibility login on behalf request
+            </summary>
+        </member>
+    </members>
+</doc>

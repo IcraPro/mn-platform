@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.SubscriptionModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.SubscriptionModule.Web.Controllers.Api.SubscriptionModuleController.SearchSubscriptions(VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria)">
+            <summary>
+            Search subscriptions by given criteria
+            </summary>
+            <param name="criteria">criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Web.Controllers.Api.SubscriptionModuleController.DeleteSubscriptionsByIds(System.String[])">
+            <summary>
+             Delete subscriptions
+            </summary>
+            <param name="ids">subscriptions' ids for delete</param>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Web.Controllers.Api.SubscriptionModuleController.GetPaymentPlansByPlentyIds(System.String[])">
+            <summary>
+            Gets plans by plenty ids 
+            </summary>
+            <param name="ids">Item ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Web.Controllers.Api.SubscriptionModuleController.DeletePlansByIds(System.String[])">
+            <summary>
+             Delete payment plans
+            </summary>
+            <param name="ids">plans' ids for delete</param>
+        </member>
+    </members>
+</doc>

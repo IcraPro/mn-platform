@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.BulkActionsModule.Core</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionContext.ActionName">
+            <summary>
+            Gets or sets the action name.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionContext.ContextTypeName">
+            <summary>
+            Gets the context type name.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext"/> class.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext.Errors">
+            <summary>
+            Gets or sets the errors.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext.ProcessedCount">
+            <summary>
+            Gets or sets the processed count.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProgressContext.TotalCount">
+            <summary>
+            Gets or sets the total count.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.#ctor(System.String,System.String,System.String[],VirtoCommerce.BulkActionsModule.Core.Services.IDataSourceFactory,VirtoCommerce.BulkActionsModule.Core.Services.IBulkActionFactory,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider"/> class.
+            </summary>
+            <param name="name">
+            The name.
+            </param>
+            <param name="contextTypeName">
+            The context type name.
+            </param>
+            <param name="applicableTypes">
+            The applicable types.
+            </param>
+            <param name="dataSourceFactory">
+            The data source factory.
+            </param>
+            <param name="bulkActionFactory">
+            The bulk action factory.
+            </param>
+            <param name="permissions">
+            The required Permissions.
+            </param>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.ApplicableTypes">
+            <summary>
+            Gets or sets the entity types to which action could be applied: Category, Product, ….
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.BulkActionFactory">
+            <summary>
+            Gets or sets the factory.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.ContextTypeName">
+            <summary>
+            Gets or sets the context type name.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.DataSourceFactory">
+            <summary>
+            Gets or sets the data source factory.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionProvider.Permissions">
+            <summary>
+            Gets or sets the required permissions.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification"/> class.
+            </summary>
+            <param name="creator">
+            The creator.
+            </param>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.ErrorCount">
+            <summary>
+            Gets error count.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.Errors">
+            <summary>
+            Gets or sets the errors.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.Finished">
+            <summary>
+            Gets or sets the finished.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.JobId">
+            <summary>
+            Gets or sets the job id.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.ProcessedCount">
+            <summary>
+            Gets or sets the processed count.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionPushNotification.TotalCount">
+            <summary>
+            Gets or sets the total count.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionResult"/> class.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionResult.Success">
+            <summary>
+            Gets the success.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionResult.Errors">
+            <summary>
+            Gets or sets the errors.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionResult.Succeeded">
+            <summary>
+            Gets or sets a value indicating whether succeeded.
+            </summary>
+        </member>
+    </members>
+</doc>

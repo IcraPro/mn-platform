@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.ExportModule.JsonProvider</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.ExportModule.JsonProvider.JsonProviderConfiguration">
+            <summary>
+            Configuration for json export provider
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.JsonProvider.JsonProviderConfiguration.Indented">
+            <summary>
+            Causes child objects to be indented
+            </summary>
+        </member>
+    </members>
+</doc>

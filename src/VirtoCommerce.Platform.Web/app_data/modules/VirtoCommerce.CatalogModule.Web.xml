@@ -1,0 +1,480 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.CatalogModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogBrowseFiltersController.GetAggregationProperties(System.String)">
+            <summary>
+            Get aggregation properties for store
+            </summary>
+            <remarks>
+            Returns all store aggregation properties: selected properties are ordered manually, unselected properties are ordered by name.
+            </remarks>
+            <param name="storeId">Store ID</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogBrowseFiltersController.SetAggregationProperties(System.String,VirtoCommerce.CatalogModule.Core.Model.AggregationProperty[])">
+            <summary>
+            Set aggregation properties for store
+            </summary>
+            <param name="storeId">Store ID</param>
+            <param name="browseFilterProperties"></param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.GetProductAssociations(System.String)">
+            <summary>
+            Returns list of associations for specified product
+            </summary>
+            <remarks>Returns list of associations for specified product</remarks>
+            <param name="productId">Owner product id</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.GetProductsAssociations(System.String[])">
+            <summary>
+            Returns list of associations for specified products
+            </summary>
+            <remarks>Returns list of associations for specified products</remarks>
+            <param name="productIds">Array of product ids</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.UpdateAssociations(VirtoCommerce.CatalogModule.Core.Model.ProductAssociation[])">
+            <summary>
+            Updates the specified association
+            </summary>
+            <remarks>Updates the specified association</remarks>
+            <param name="associations">The association</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.Delete(System.String[])">
+            <summary>
+            Deletes specified associations
+            </summary>
+            <remarks>Updates the specified association</remarks>
+            <param name="ids">associations to delete ids</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.Search(VirtoCommerce.CatalogModule.Core.Model.Search.ProductAssociationSearchCriteria)">
+            <summary>
+            Returns associations by search criteria
+            </summary>
+            <remarks>Returns associations by search criteria</remarks>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleAssociationsController.PatchAssociation(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.ProductAssociation})">
+            <summary>
+            Partial update for the specified association by id
+            </summary>
+            <param name="id">ProductAssociation id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.GetCatalog(System.String,System.String)">
+            <summary>
+            Gets Catalog by id
+            </summary>
+            <remarks>Gets Catalog by id with full information loaded</remarks>
+            <param name="id">The Catalog id.</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.GetCatalogByOuterId(System.String,System.String)">
+            <summary>
+            Gets catalog by outer id.
+            </summary>
+            <remarks>Gets catalog by outer id</remarks>
+            <param name="outerId">Catalog outer id</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.GetNewCatalog">
+            <summary>
+            Gets the template for a new catalog
+            </summary>
+            <remarks>Gets the template for a new common catalog</remarks>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.GetNewVirtualCatalog">
+            <summary>
+            Gets the template for a new virtual catalog
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.CreateCatalog(VirtoCommerce.CatalogModule.Core.Model.Catalog)">
+            <summary>
+            Creates the specified catalog
+            </summary>
+            <remarks>Creates the specified catalog</remarks>
+            <param name="catalog">The catalog to create</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.UpdateCatalog(VirtoCommerce.CatalogModule.Core.Model.Catalog)">
+            <summary>
+            Updates the specified catalog
+            </summary>
+            <remarks>Updates the specified catalog.</remarks>
+            <param name="catalog">The catalog.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.DeleteCatalog(System.String)">
+            <summary>
+            Deletes catalog by id
+            </summary>
+            <remarks>Deletes catalog by id</remarks>
+            <param name="id">Catalog id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCatalogsController.PatchCatalog(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Catalog})">
+            <summary>
+            Partial update for the specified Catalog by id
+            </summary>
+            <param name="id">Catalog id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetCategory(System.String,System.String)">
+            <summary>
+            Gets category by id.
+            </summary>
+            <param name="id">Category id.</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetCategoryByOuterId(System.String,System.String)">
+            <summary>
+            Gets category by outer id.
+            </summary>
+            <remarks>Gets category by outer id (integration key) with full information loaded</remarks>
+            <param name="outerId">Category outer id</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetCategoriesByIdsAsync(System.Collections.Generic.List{System.String},System.String)">
+             <summary>
+             Gets categories by ids
+             </summary>
+             <param name="ids">Categories ids</param>
+            <param name="respGroup">Response group.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetCategoriesByPlentyIds(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Get categories by plenty ids
+            </summary>
+            <param name="ids">Categories ids</param>
+            <param name="respGroup">Response group</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetCategoriesByCodes(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Gets categories by codes
+            </summary>
+            <param name="catalogId">Catalog id</param>
+            <param name="codes">Category codes</param>
+            <param name="responseGroup">Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.GetNewCategory(System.String,System.String)">
+            <summary>
+            Gets the template for a new category.
+            </summary>
+            <param name="catalogId">The catalog id.</param>
+            <param name="parentCategoryId">The parent category id. (Optional)</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.CreateOrUpdateCategory(VirtoCommerce.CatalogModule.Core.Model.Category)">
+            <summary>
+            Creates or updates the specified category.
+            </summary>
+            <remarks>If category.id is null, a new category is created. It's updated otherwise</remarks>
+            <param name="category">The category.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.DeleteCategory(System.Collections.Generic.List{System.String})">
+            <summary>
+            Deletes the specified categories by id.
+            </summary>
+            <param name="ids">The categories ids.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.PatchCategory(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Category})">
+            <summary>
+            Partial update for the specified Category by id
+            </summary>
+            <param name="id">Category id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleCategoriesController.SaveCategories(VirtoCommerce.CatalogModule.Core.Model.Category[])">
+            <summary>
+            Create/Update the specified categories.
+            </summary>
+            <param name="categories">The categories.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleConfigurationsController.GetConfiguration(System.String)">
+            <summary>
+            Get configuration by id.
+            </summary>
+            <remarks>Gets configuration by id with full information loaded</remarks>
+            <param name="id">The configuration id</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleConfigurationsController.SearchConfigurations(VirtoCommerce.CatalogModule.Core.Model.Search.ProductConfigurationSearchCriteria)">
+            <summary>
+            Search configurations
+            </summary>
+            <param name="criteria">Search criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleConfigurationsController.CreateOrUpdateConfiguration(VirtoCommerce.CatalogModule.Core.Model.Configuration.ProductConfiguration)">
+            <summary>
+            Create or update the specified configuration.
+            </summary>
+            <remarks>If configuration id is null, a new configuration is created. It's updated otherwise</remarks>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleConfigurationsController.PatchConfiguration(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Configuration.ProductConfiguration})">
+            <summary>
+            Partial update for the specified Configuration by id
+            </summary>
+            <param name="id">Configuration id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.ListItemsSearchAsync(VirtoCommerce.CatalogModule.Core.Model.Search.CatalogListEntrySearchCriteria)">
+            <summary>
+            Searches for the items by complex criteria.
+            </summary>
+            <param name="criteria">The search criteria.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.CreateLinks(VirtoCommerce.CatalogModule.Core.Model.CategoryLink[])">
+            <summary>
+            Creates links for categories or items to parent categories and catalogs.
+            </summary>
+            <param name="links">The links.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.BulkCreateLinks(VirtoCommerce.CatalogModule.Web.Model.BulkLinkCreationRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates category links in bulk for catalog entries based on the specified search criteria.
+            </summary>
+            <param name="creationRequest">The request containing the target catalog, category, and search criteria for the entries to link.</param>
+            <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/> indicating the result of the operation. Returns <see cref="T:Microsoft.AspNetCore.Mvc.BadRequestResult"/>
+            if the catalog identifier is not specified, <see cref="T:Microsoft.AspNetCore.Mvc.ForbidResult"/> if the user lacks the required
+            permissions, or <see cref="T:Microsoft.AspNetCore.Mvc.OkResult"/> upon successful completion.</returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.DeleteLinks(VirtoCommerce.CatalogModule.Core.Model.CategoryLink[])">
+            <summary>
+            Unlinks the linked categories or items from parent categories and catalogs.
+            </summary>
+            <param name="links">The links.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.Move(VirtoCommerce.CatalogModule.Core.Model.ListEntriesMoveRequest)">
+            <summary>
+            Move categories or products to another location.
+            </summary>
+            <param name="moveRequest">Move operation request</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleListEntryController.Delete(VirtoCommerce.CatalogModule.Core.Model.Search.CatalogListEntrySearchCriteria)">
+            <summary>
+            Bulk delete by the search criteria.
+            </summary>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleMeasuresController.PatchMeasure(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Measure})">
+            <summary>
+            Partial update for the specified Measure by id
+            </summary>
+            <param name="id">Measure id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetProductById(System.String,System.String)">
+             <summary>
+             Gets product by id.
+             </summary>
+             <param name="id">Item id.</param>
+            <param name="respGroup">Response group.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetProductByOuterId(System.String,System.String)">
+            <summary>
+            Gets product by outer id.
+            </summary>
+            <remarks>Gets product by outer id (integration key) with full information loaded</remarks>
+            <param name="outerId">Product outer id</param>
+            <param name="responseGroup">>Response group</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetProductByIds(System.Collections.Generic.List{System.String},System.String)">
+             <summary>
+             Gets products by ids
+             </summary>
+             <param name="ids">Item ids</param>
+            <param name="respGroup">Response group.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetProductByPlentyIds(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Gets products by plenty ids
+            </summary>
+            <param name="ids">Item ids</param>
+            <param name="respGroup">Response group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetNewProductByCatalog(System.String)">
+            <summary>
+            Gets the template for a new product (outside of category).
+            </summary>
+            <remarks>Use when need to create item belonging to catalog directly.</remarks>
+            <param name="catalogId">The catalog id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetNewProductByCatalogAndCategory(System.String,System.String)">
+            <summary>
+            Gets the template for a new product (inside category).
+            </summary>
+            <remarks>Use when need to create item belonging to catalog category.</remarks>
+            <param name="catalogId">The catalog id.</param>
+            <param name="categoryId">The category id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.GetNewVariation(System.String)">
+            <summary>
+            Gets the template for a new variation.
+            </summary>
+            <param name="productId">The parent product id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.ProductPartialUpdate(System.String,System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Updates only given properties
+            </summary>
+            <param name="productId">Product ID</param>
+            <param name="language">Language for properties to change</param>
+            <param name="productPatch">JSON object in a key-value format</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.SaveProduct(VirtoCommerce.CatalogModule.Core.Model.CatalogProduct)">
+            <summary>
+            Create/Update the specified product.
+            </summary>
+            <param name="product">The product.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.SaveProducts(VirtoCommerce.CatalogModule.Core.Model.CatalogProduct[])">
+            <summary>
+            Create/Update the specified products.
+            </summary>
+            <param name="products">The products.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.DeleteProduct(System.Collections.Generic.List{System.String})">
+            <summary>
+            Deletes the specified items by id.
+            </summary>
+            <param name="ids">The items ids.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleProductsController.PatchProduct(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.CatalogProduct})">
+            <summary>
+            Partial update for the specified Product by id
+            </summary>
+            <param name="id">Product id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.GetProperty(System.String)">
+            <summary>
+            Gets property metainformation by id.
+            </summary>
+            <param name="propertyId">The property id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.GetNewCatalogProperty(System.String)">
+            <summary>
+            Gets the template for a new catalog property.
+            </summary>
+            <param name="catalogId">The catalog id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.GetNewCategoryProperty(System.String)">
+            <summary>
+            Gets the template for a new category property.
+            </summary>
+            <param name="categoryId">The category id.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.SaveProperty(VirtoCommerce.CatalogModule.Core.Model.Property)">
+            <summary>
+            Creates or updates the specified property.
+            </summary>
+            <remarks>If property.IsNew == True, a new property is created. It's updated otherwise</remarks>
+            <param name="property">The property.</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.ValidateName(VirtoCommerce.CatalogModule.Core.Model.PropertyValidationRequest)">
+            <summary>
+            Validate name for Product-level (unmanaged) property
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.DeleteProperty(System.String,System.Boolean)">
+            <summary>
+            Deletes property by id.
+            </summary>
+            <param name="id">The property id.</param>
+            <param name="doDeleteValues">Flag indicating to remove property values from objects as well</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertiesController.PatchProperty(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Property})">
+            <summary>
+            Partial update for the specified Property by id
+            </summary>
+            <param name="id">Property id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertyDictionaryItemsController.SearchPropertyDictionaryItems(VirtoCommerce.CatalogModule.Core.Model.Search.PropertyDictionaryItemSearchCriteria)">
+            <summary>
+            Search property dictionary items
+            </summary>
+            <param name="criteria">The search criteria</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertyDictionaryItemsController.SaveChanges(VirtoCommerce.CatalogModule.Core.Model.PropertyDictionaryItem[])">
+            <summary>
+            Creates or updates the specified property dictionary items
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertyDictionaryItemsController.DeletePropertyDictionaryItems(System.String[])">
+            <summary>
+            Delete property dictionary items by ids
+            </summary>
+            <param name="ids">The identifiers of objects that needed to be deleted</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModulePropertyDictionaryItemsController.PatchPropertyDictionaryItem(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.PropertyDictionaryItem})">
+            <summary>
+            Partial update for the specified PropertyDictionaryItem by id
+            </summary>
+            <param name="id">PropertyDictionaryItem id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.GetOptions">
+            <summary>
+            Get video options from configuration
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.CreateVideo(VirtoCommerce.CatalogModule.Core.Model.VideoCreateRequest)">
+            <summary>
+            Create video
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.SearchVideos(VirtoCommerce.CatalogModule.Core.Model.Search.VideoSearchCriteria)">
+            <summary>
+            Search videos
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.Update(VirtoCommerce.CatalogModule.Core.Model.Video[])">
+            <summary>
+             Create new or update existing videos
+            </summary>
+            <param name="videos">Video models</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.Delete(System.String[])">
+            <summary>
+            Delete videos by ids
+            </summary>
+            <param name="ids">Video ids</param>
+        </member>
+        <member name="M:VirtoCommerce.CatalogModule.Web.Controllers.Api.CatalogModuleVideosController.PatchVideo(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CatalogModule.Core.Model.Video})">
+            <summary>
+            Partial update for the specified Video by id
+            </summary>
+            <param name="id">Video id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.CatalogModule.Web.Model.BulkLinkCreationRequest">
+            <summary>
+            Information to search and create links to categories and items
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CatalogModule.Web.Model.BulkLinkCreationRequest.CategoryId">
+            <summary>
+            The target category identifier for the link
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CatalogModule.Web.Model.BulkLinkCreationRequest.CatalogId">
+            <summary>
+            The target catalog identifier for the link
+            </summary>
+        </member>
+    </members>
+</doc>

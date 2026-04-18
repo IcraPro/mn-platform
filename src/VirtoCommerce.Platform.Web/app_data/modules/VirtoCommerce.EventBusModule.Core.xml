@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.EventBusModule.Core</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.EventBusModule.Core.Services.IEventBusProviderConnectionsService">
+            <summary>
+            Get provider connections from CRUD or application settings
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.EventBusModule.Core.Services.IEventBusProviderConnectionsService.GetConnectedProviderAsync(System.String)">
+            <summary>
+            Get provider connection from CRUD or application settings
+            </summary>
+            <param name="providerConnectionName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.EventBusModule.Core.Services.IEventBusProviderService.CreateProvider(System.String)">
+            <summary>
+            Instantiate provider with specific name
+            </summary>
+            <param name="providerName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.EventBusModule.Core.Services.IEventBusReadConfigurationService">
+            <summary>
+            Read eventbus configurations from applications settings
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.EventBusModule.Core.Services.IEventBusSubscriptionsService">
+            <summary>
+            Get subscriptions from CRUD or application settings
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.EventBusModule.Core.Services.IEventBusSubscriptionsService.GetSubscriptionAsync(System.String)">
+            <summary>
+            Get the subscription from CRUD or application settings
+            </summary>
+        </member>
+    </members>
+</doc>

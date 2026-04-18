@@ -1,0 +1,434 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "VirtoCommerce.AuthorizeNetPayment.Web/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.AuthorizeNetPayment.Core": "3.1000.0",
+          "VirtoCommerce.AuthorizeNetPayment.Data": "3.1000.0"
+        },
+        "runtime": {
+          "VirtoCommerce.AuthorizeNetPayment.Web.dll": {}
+        }
+      },
+      "DotLiquid/2.3.197": {
+        "runtime": {
+          "lib/net6.0/DotLiquid.dll": {
+            "assemblyVersion": "2.3.197.0",
+            "fileVersion": "2.3.197.0"
+          }
+        },
+        "resources": {
+          "lib/net6.0/it/DotLiquid.resources.dll": {
+            "locale": "it"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
+      "Serilog/4.3.0": {
+        "runtime": {
+          "lib/net9.0/Serilog.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "22.1.0",
+          "TestableIO.System.IO.Abstractions.Wrappers": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+        "runtime": {
+          "lib/net10.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "TimeZoneConverter/7.2.0": {
+        "runtime": {
+          "lib/net9.0/TimeZoneConverter.dll": {
+            "assemblyVersion": "7.2.0.0",
+            "fileVersion": "7.2.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.CartModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.NotificationsModule.Core": "3.1000.0",
+          "VirtoCommerce.PaymentModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.ShippingModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.CartModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.CoreModule.Core/3.1000.0": {
+        "dependencies": {
+          "TimeZoneConverter": "7.2.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.CoreModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.CustomerModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.NotificationsModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.SearchModule.Core": "3.1000.0",
+          "VirtoCommerce.Seo.Core": "3.1000.0",
+          "VirtoCommerce.StoreModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.CustomerModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.NotificationsModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.NotificationsModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.OrdersModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CartModule.Core": "3.1000.0",
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.CustomerModule.Core": "3.1000.0",
+          "VirtoCommerce.NotificationsModule.Core": "3.1000.0",
+          "VirtoCommerce.PaymentModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.SearchModule.Core": "3.1000.0",
+          "VirtoCommerce.ShippingModule.Core": "3.1000.0",
+          "VirtoCommerce.StoreModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.OrdersModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.PaymentModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.PaymentModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Core/3.1002.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4",
+          "Serilog": "4.3.0",
+          "System.IO.Abstractions": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Core.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.SearchModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.SearchModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Seo.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Seo.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.ShippingModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.SearchModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.ShippingModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.StoreModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.CoreModule.Core": "3.1000.0",
+          "VirtoCommerce.NotificationsModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.Seo.Core": "3.1000.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.StoreModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.AuthorizeNetPayment.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "VirtoCommerce.AuthorizeNetPayment.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.AuthorizeNetPayment.Data/3.1000.0": {
+        "dependencies": {
+          "DotLiquid": "2.3.197",
+          "VirtoCommerce.AuthorizeNetPayment.Core": "3.1000.0",
+          "VirtoCommerce.OrdersModule.Core": "3.1000.0",
+          "VirtoCommerce.PaymentModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "VirtoCommerce.AuthorizeNetPayment.Data.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "AuthorizeNET/2.0.2.0": {
+        "runtime": {
+          "AuthorizeNET.dll": {
+            "assemblyVersion": "2.0.2.0",
+            "fileVersion": "2.0.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VirtoCommerce.AuthorizeNetPayment.Web/3.1000.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DotLiquid/2.3.197": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QaJHansb139SUSPTle0i81RyCi608kWFFH4HzDEz8c9JCqJ0rXM6cjqPXTLSQNtlNgFDZ8gSsgxwFMB93P669Q==",
+      "path": "dotliquid/2.3.197",
+      "hashPath": "dotliquid.2.3.197.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
+    },
+    "Serilog/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ==",
+      "path": "serilog/4.3.0",
+      "hashPath": "serilog.4.3.0.nupkg.sha512"
+    },
+    "System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QDwmFWQQ84FIRFkOGLwdhJWgOP2Qm+d73edWavzVvYrQ029jjB7CdT24L/F9QvGThN7uYZW6vLLSpvaUBC2Cw==",
+      "path": "system.io.abstractions/22.1.0",
+      "hashPath": "system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YQ/IuNE8gP/+yNwQjdqd6DKhB9ADGjosxuY2IMXcQ3729iXa9QRsPlmIBpk73L0s9E2b+MTYhAR/2Spk8REjvA==",
+      "path": "testableio.system.io.abstractions/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IsW3jQqIiTN4GwdWFx+dzgRL5XR75UDTFVGuuIackPf2d7eH0KKyrx4wuIoASa1XnS9zhgLP39FKwJq6nbbx1w==",
+      "path": "testableio.system.io.abstractions.wrappers/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.wrappers.22.1.0.nupkg.sha512"
+    },
+    "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tZOXFLGjkh8TxgMgKeEcM2HAlz9DwndGl6TFLo6ISHcszFX3FkuPMrtVbmqVjhooWNXrgJ/a9cH9ym5MZL1LAg==",
+      "path": "testably.abstractions.filesystem.interface/10.0.0",
+      "hashPath": "testably.abstractions.filesystem.interface.10.0.0.nupkg.sha512"
+    },
+    "TimeZoneConverter/7.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4Poqu79dTmacVETqUJ53g3x4U21V/cmWPSlehdsVE4Q00akavvlRq+SRjcg/CmfO9ibOCjRl6TeUV7hkC5RC4w==",
+      "path": "timezoneconverter/7.2.0",
+      "hashPath": "timezoneconverter.7.2.0.nupkg.sha512"
+    },
+    "VirtoCommerce.CartModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ig72Ng2i6CAlUMqskKPsq0h3XyTLO5yEHnTWR5oYeQ649o7lR39G3EfebLhYweyHBM/p/hDzs2VMm4cMnZGT4g==",
+      "path": "virtocommerce.cartmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.cartmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.CoreModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1z9+dH+bkkaH8LwxbTW+1iwiYNAR+NbQEfpALZ/YyZ8j5o28cWxNCnQR0lt6wr7IqVx3UjLaX2Hu00QqYwzLpA==",
+      "path": "virtocommerce.coremodule.core/3.1000.0",
+      "hashPath": "virtocommerce.coremodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.CustomerModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cvz0UpQZc5XcZA29p4hJLFtUf/B3wWvAsnzCqQ2dkaSvAVVn/2prZcphreCHRTaHLZuziq7zQxN5NO9Q6C790w==",
+      "path": "virtocommerce.customermodule.core/3.1000.0",
+      "hashPath": "virtocommerce.customermodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.NotificationsModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8CxmvItuCNtc3B/AeLOy/4Ttv2FnMmPpm11VXyhijLa0kf3+cib5YVNRV7j9U7tba/0xmwRNOMFKYAjkAYuUmA==",
+      "path": "virtocommerce.notificationsmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.notificationsmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.OrdersModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VMiIuftiTBztDXUx+8Ntf0v0aG7+PvSbSdHdy3SvARrKpiyWFRCUC4co2VaZBMeqpn/jTex75mRbDCQYzMpA7w==",
+      "path": "virtocommerce.ordersmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.ordersmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.PaymentModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q005fhAQ/XjEknCUaFh8WiWERpZfjyxItSojnEiO42UEXLDSnpJIn/Ql+SppwWsxYz71+lnVR7uc/DkmtI7OPw==",
+      "path": "virtocommerce.paymentmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.paymentmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Core/3.1002.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NNVM+Mf+oWRnovLsegLDOSNoxNz5TFnHH+fsVryS45/9pFupin+td5DoTOeOUlfPsOkVmCmu9oCpETbuQlQ/hA==",
+      "path": "virtocommerce.platform.core/3.1002.0",
+      "hashPath": "virtocommerce.platform.core.3.1002.0.nupkg.sha512"
+    },
+    "VirtoCommerce.SearchModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7V/N7/EIVzbl65wqfxlrpwZPGPXZkvzkUs0aruldL06doEVT6QuEqIchDao359K5FWm6qo3smwJXNqm4Wixbnw==",
+      "path": "virtocommerce.searchmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.searchmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Seo.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZzHMJFIxDm6P0rfCN2YqF8NjOjpxclSMkwCJpgiu20Jkc66dvSbAqZxSLAF9OGC6476+SUs3QQfspUXeGRfxrQ==",
+      "path": "virtocommerce.seo.core/3.1000.0",
+      "hashPath": "virtocommerce.seo.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.ShippingModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ofmi+mSgXLum9AaPoCuMueR2HqZc9eWhj7J8QjmHDNQGuk67KUO8rU9Mmxp2Y1pm2ZEUmwW9+JLHjBY59BOzNA==",
+      "path": "virtocommerce.shippingmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.shippingmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.StoreModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eZoC3mZ8VeseDOwiBrVMOFRn8tTcQCIwzMgQVafH+cQHXZvSBaPwdhGv9teaybYowN7Jb9tR+EONilU/V8aStg==",
+      "path": "virtocommerce.storemodule.core/3.1000.0",
+      "hashPath": "virtocommerce.storemodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.AuthorizeNetPayment.Core/3.1000.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VirtoCommerce.AuthorizeNetPayment.Data/3.1000.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AuthorizeNET/2.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

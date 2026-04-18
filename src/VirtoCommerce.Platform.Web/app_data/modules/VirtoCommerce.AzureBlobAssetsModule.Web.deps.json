@@ -1,0 +1,303 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "VirtoCommerce.AzureBlobAssetsModule.Web/3.1002.0": {
+        "dependencies": {
+          "VirtoCommerce.AzureBlobAssetsModule.Core": "3.1002.0"
+        },
+        "runtime": {
+          "VirtoCommerce.AzureBlobAssetsModule.Web.dll": {}
+        }
+      },
+      "Azure.Core/1.50.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
+          "System.ClientModel": "1.8.0",
+          "System.Memory.Data": "8.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Azure.Core.dll": {
+            "assemblyVersion": "1.50.0.0",
+            "fileVersion": "1.5000.25.55604"
+          }
+        }
+      },
+      "Azure.Storage.Blobs/12.27.0": {
+        "dependencies": {
+          "Azure.Core": "1.50.0",
+          "Azure.Storage.Common": "12.26.0"
+        },
+        "runtime": {
+          "lib/net10.0/Azure.Storage.Blobs.dll": {
+            "assemblyVersion": "12.27.0.0",
+            "fileVersion": "12.2700.26.5804"
+          }
+        }
+      },
+      "Azure.Storage.Common/12.26.0": {
+        "dependencies": {
+          "Azure.Core": "1.50.0",
+          "System.IO.Hashing": "10.0.1"
+        },
+        "runtime": {
+          "lib/net10.0/Azure.Storage.Common.dll": {
+            "assemblyVersion": "12.26.0.0",
+            "fileVersion": "12.2600.26.5804"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
+      "Serilog/4.3.0": {
+        "runtime": {
+          "lib/net9.0/Serilog.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "System.ClientModel/1.8.0": {
+        "dependencies": {
+          "System.Memory.Data": "8.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/System.ClientModel.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.800.25.55302"
+          }
+        }
+      },
+      "System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "22.1.0",
+          "TestableIO.System.IO.Abstractions.Wrappers": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "System.IO.Hashing/10.0.1": {
+        "runtime": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "10.0.0.1",
+            "fileVersion": "10.0.125.57005"
+          }
+        }
+      },
+      "System.Memory.Data/8.0.1": {
+        "runtime": {
+          "lib/net8.0/System.Memory.Data.dll": {
+            "assemblyVersion": "8.0.0.1",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+        "runtime": {
+          "lib/net10.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.AssetsModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1010.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.AssetsModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Core/3.1010.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4",
+          "Serilog": "4.3.0",
+          "System.IO.Abstractions": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Core.dll": {
+            "assemblyVersion": "3.1010.0.0",
+            "fileVersion": "3.1010.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.AzureBlobAssetsModule.Core/3.1002.0": {
+        "dependencies": {
+          "Azure.Storage.Blobs": "12.27.0",
+          "VirtoCommerce.AssetsModule.Core": "3.1000.0",
+          "VirtoCommerce.Platform.Core": "3.1010.0"
+        },
+        "runtime": {
+          "VirtoCommerce.AzureBlobAssetsModule.Core.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VirtoCommerce.AzureBlobAssetsModule.Web/3.1002.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Azure.Core/1.50.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GBNKZEhdIbTXxedvD3R7I/yDVFX9jJJEz02kCziFSJxspSQ5RMHc3GktulJ1s7+ffXaXD7kMgrtdQTaggyInLw==",
+      "path": "azure.core/1.50.0",
+      "hashPath": "azure.core.1.50.0.nupkg.sha512"
+    },
+    "Azure.Storage.Blobs/12.27.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zI5rg1tTtnA8T2g2/21l+1iIUdDjpEQQ0FI1BabJVEQJ1JUyTQKrc41eNabAHs0SBHprl6pu/6OqIMK9Ve+4tQ==",
+      "path": "azure.storage.blobs/12.27.0",
+      "hashPath": "azure.storage.blobs.12.27.0.nupkg.sha512"
+    },
+    "Azure.Storage.Common/12.26.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XaT6CDcSshZb7KaCTwc6m4EouZbLBg7ciOEpsJSdJCvkNsZJQCvPKw7V5TtXno19AA1NpwtsZriYque8mzbQVg==",
+      "path": "azure.storage.common/12.26.0",
+      "hashPath": "azure.storage.common.12.26.0.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3WA9q9yVqJp222P3x1wYIGDAkpjAku0TMUaaQV22g6L67AI0LdOIrVS7Ht2vJfLHGSPVuqN94vIr15qn+HEkHw==",
+      "path": "microsoft.bcl.asyncinterfaces/8.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
+    },
+    "Serilog/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ==",
+      "path": "serilog/4.3.0",
+      "hashPath": "serilog.4.3.0.nupkg.sha512"
+    },
+    "System.ClientModel/1.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AqRzhn0v29GGGLj/Z6gKq4lGNtvPHT4nHdG5PDJh9IfVjv/nYUVmX11hwwws1vDFeIAzrvmn0dPu8IjLtu6fAw==",
+      "path": "system.clientmodel/1.8.0",
+      "hashPath": "system.clientmodel.1.8.0.nupkg.sha512"
+    },
+    "System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QDwmFWQQ84FIRFkOGLwdhJWgOP2Qm+d73edWavzVvYrQ029jjB7CdT24L/F9QvGThN7uYZW6vLLSpvaUBC2Cw==",
+      "path": "system.io.abstractions/22.1.0",
+      "hashPath": "system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "System.IO.Hashing/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Dy6ULPb2S0GmNndjKrEIpfibNsc8+FTOoZnqygtFDuyun8vWboQbfMpQtKUXpgTxokR5E4zFHETpNnGfeWY6NA==",
+      "path": "system.io.hashing/10.0.1",
+      "hashPath": "system.io.hashing.10.0.1.nupkg.sha512"
+    },
+    "System.Memory.Data/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BVYuec3jV23EMRDeR7Dr1/qhx7369dZzJ9IWy2xylvb4YfXsrUxspWc4UWYid/tj4zZK58uGZqn2WQiaDMhmAg==",
+      "path": "system.memory.data/8.0.1",
+      "hashPath": "system.memory.data.8.0.1.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YQ/IuNE8gP/+yNwQjdqd6DKhB9ADGjosxuY2IMXcQ3729iXa9QRsPlmIBpk73L0s9E2b+MTYhAR/2Spk8REjvA==",
+      "path": "testableio.system.io.abstractions/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IsW3jQqIiTN4GwdWFx+dzgRL5XR75UDTFVGuuIackPf2d7eH0KKyrx4wuIoASa1XnS9zhgLP39FKwJq6nbbx1w==",
+      "path": "testableio.system.io.abstractions.wrappers/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.wrappers.22.1.0.nupkg.sha512"
+    },
+    "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tZOXFLGjkh8TxgMgKeEcM2HAlz9DwndGl6TFLo6ISHcszFX3FkuPMrtVbmqVjhooWNXrgJ/a9cH9ym5MZL1LAg==",
+      "path": "testably.abstractions.filesystem.interface/10.0.0",
+      "hashPath": "testably.abstractions.filesystem.interface.10.0.0.nupkg.sha512"
+    },
+    "VirtoCommerce.AssetsModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KXlqOp/c8aocyeL6wYtokfmIwzxmRQFbMgEW44GKT91wuawEYY+hfuxDc+J58ymfmOPvfgCkFALeRkyKEsXDgQ==",
+      "path": "virtocommerce.assetsmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.assetsmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Core/3.1010.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BVUhLc79n4TzMCCwEdytgqYTcmqOK5jCGcwVhWrzab2Xbl/KnPpd3W7QT4HpS/Zb+72uNHo5hy3cWQlQmAX01w==",
+      "path": "virtocommerce.platform.core/3.1010.0",
+      "hashPath": "virtocommerce.platform.core.3.1010.0.nupkg.sha512"
+    },
+    "VirtoCommerce.AzureBlobAssetsModule.Core/3.1002.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

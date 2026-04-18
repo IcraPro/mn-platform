@@ -270,14 +270,14 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 # tools/
-app_data/
+distapp_data/
 /src/VirtoCommerce.Platform.Web/wwwroot/modules
 /src/VirtoCommerce.Platform.Web/wwwroot/lib
 /src/VirtoCommerce.Platform.Web/wwwroot/app_data
 /src/VirtoCommerce.Platform.Web/wwwroot/maps
 /src/VirtoCommerce.Platform.Web/wwwroot/cms-content
 /src/VirtoCommerce.Platform.Web/wwwroot/assets
-/src/VirtoCommerce.Platform.Web/wwwroot/dist
+/src/VirtoCommerce.Platform.Web/wwwroot/
 
 .vscode
 

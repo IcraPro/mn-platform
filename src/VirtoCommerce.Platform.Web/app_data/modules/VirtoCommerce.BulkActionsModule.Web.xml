@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.BulkActionsModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.BackgroundJobs.BulkActionJob.#ctor(VirtoCommerce.Platform.Core.PushNotifications.IPushNotificationManager,VirtoCommerce.BulkActionsModule.Core.Services.IBulkActionExecutor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Web.BackgroundJobs.BulkActionJob"/> class.
+            </summary>
+            <param name="pushNotificationManager">
+            The push notification manager.
+            </param>
+            <param name="bulkActionExecutor">
+            The bulk update action executor.
+            </param>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.#ctor(VirtoCommerce.BulkActionsModule.Core.Services.IBulkActionProviderStorage,VirtoCommerce.Platform.Core.Security.IUserNameResolver,VirtoCommerce.BulkActionsModule.Web.BackgroundJobs.IBackgroundJobExecutor,Microsoft.AspNetCore.Authorization.IAuthorizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController"/> class.
+            </summary>
+            <param name="bulkActionProviderStorage">
+            The bulk action provider storage.
+            </param>
+            <param name="userNameResolver">
+            The user name resolver.
+            </param>
+            <param name="authorizationService">
+            
+            </param>
+            <param name="backgroundJobExecutor">
+            The background job executor.
+            </param>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.Cancel(System.String)">
+            <summary>
+            Attempts to cancel running task.
+            </summary>
+            <param name="jobId">
+            The job id.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/>.
+            </returns>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.GetActionData(VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionContext)">
+            <summary>
+            Gets action initialization data (could be used to initialize UI).
+            </summary>
+            <param name="context">Context for which we want initialization data.</param>
+            <returns>Initialization data for the given context.</returns>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.GetRegisteredActions">
+            <summary>
+            Gets the list of all registered actions.
+            </summary>
+            <returns>The list of registered actions.</returns>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.Run(VirtoCommerce.BulkActionsModule.Core.Models.BulkActions.BulkActionContext)">
+            <summary>
+            Starts bulk action background job.
+            </summary>
+            <param name="context">Execution context.</param>
+            <returns>Notification with job id.</returns>
+        </member>
+        <member name="M:VirtoCommerce.BulkActionsModule.Web.Controllers.Api.BulkActionsController.IsAuthorizedUserHasPermissionsAsync(System.String[])">
+            <summary>
+            Performs all security handlers checks, and returns true if all are succeeded.
+            </summary>
+            <param name="permissions">
+            The permissions.
+            </param>
+            <returns>
+            True if all checks are succeeded, otherwise false.
+            </returns>
+        </member>
+    </members>
+</doc>

@@ -47,9 +47,6 @@ using VirtoCommerce.Platform.Core.Security.Search;
 using VirtoCommerce.Platform.Core.Settings;
 using VirtoCommerce.Platform.Data.DeveloperTools;
 using VirtoCommerce.Platform.Data.Extensions;
-using VirtoCommerce.Platform.Data.MySql;
-using VirtoCommerce.Platform.Data.MySql.Extensions;
-using VirtoCommerce.Platform.Data.MySql.HealthCheck;
 using VirtoCommerce.Platform.Data.PostgreSql;
 using VirtoCommerce.Platform.Data.PostgreSql.Extensions;
 using VirtoCommerce.Platform.Data.PostgreSql.HealthCheck;
@@ -149,15 +146,12 @@ namespace VirtoCommerce.Platform.Web
             services.AddSingleton<IFileCopyPolicy, FileCopyPolicy>();
             services.AddSingleton<IFileMetadataProvider, FileMetadataProvider>();
 
-            services.AddDbContext<PlatformDbContext>((provider, options) =>
+services.AddDbContext<PlatformDbContext>((provider, options) =>
             {
                 var connectionString = Configuration.GetConnectionString("VirtoCommerce");
 
                 switch (databaseProvider)
                 {
-                    case "MySql":
-                        options.UseMySqlDatabase(connectionString, typeof(MySqlDataAssemblyMarker), Configuration);
-                        break;
                     case "PostgreSql":
                         options.UsePostgreSqlDatabase(connectionString, typeof(PostgreSqlDataAssemblyMarker), Configuration);
                         break;
@@ -219,9 +213,6 @@ namespace VirtoCommerce.Platform.Web
 
                 switch (databaseProvider)
                 {
-                    case "MySql":
-                        options.UseMySqlDatabase(connectionString, typeof(MySqlDataAssemblyMarker), Configuration);
-                        break;
                     case "PostgreSql":
                         options.UsePostgreSqlDatabase(connectionString, typeof(PostgreSqlDataAssemblyMarker), Configuration);
                         break;
@@ -252,12 +243,6 @@ namespace VirtoCommerce.Platform.Web
 
             // Enable synchronous IO if using Kestrel:
             services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
-
-            // Enable synchronous IO if using IIS:
-            services.Configure<IISServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
             });
@@ -306,10 +291,6 @@ namespace VirtoCommerce.Platform.Web
             ICertificateLoader certificateLoader;
             switch (databaseProvider)
             {
-                case "MySql":
-                    certificateLoader = new MySqlCertificateLoader(Configuration);
-                    services.AddSingleton<ICertificateLoader>(s => { return certificateLoader; });
-                    break;
                 case "PostgreSql":
                     certificateLoader = new PostgreSqlCertificateLoader(Configuration);
                     services.AddSingleton<ICertificateLoader>(s => { return certificateLoader; });
@@ -574,12 +555,6 @@ namespace VirtoCommerce.Platform.Web
             var connectionString = Configuration.GetConnectionString("VirtoCommerce");
             switch (databaseProvider)
             {
-                case "MySql":
-                    healthBuilder.AddMySql(connectionString,
-                        name: "MySql health",
-                        failureStatus: HealthStatus.Unhealthy,
-                        tags: ["Database"]);
-                    break;
                 case "PostgreSql":
                     healthBuilder.AddNpgSql(connectionString,
                         name: "PostgreSql health",
@@ -702,6 +677,9 @@ namespace VirtoCommerce.Platform.Web
 
                 // Apply platform migrations
                 app.UsePlatformMigrations(Configuration);
+
+                // Run all registered IDataSeeder implementations (idempotent, order-aware)
+                app.UsePlatformSeedData();
 
                 app.UpdateServerCertificateIfNeed(ServerCertificate);
 

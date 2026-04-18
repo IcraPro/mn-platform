@@ -1,0 +1,411 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "VirtoCommerce.LuceneSearchModule.Web/3.1002.0": {
+        "dependencies": {
+          "VirtoCommerce.LuceneSearchModule.Data": "3.1002.0"
+        },
+        "runtime": {
+          "VirtoCommerce.LuceneSearchModule.Web.dll": {}
+        }
+      },
+      "GeoAPI.CoordinateSystems/1.7.5": {
+        "dependencies": {
+          "GeoAPI.Core": "1.7.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/GeoAPI.CoordinateSystems.dll": {
+            "assemblyVersion": "1.7.5.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "GeoAPI.Core/1.7.5": {
+        "runtime": {
+          "lib/netstandard2.0/GeoAPI.dll": {
+            "assemblyVersion": "1.7.5.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "J2N/2.1.0": {
+        "runtime": {
+          "lib/net8.0/J2N.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "Lucene.Net/4.8.0-beta00017": {
+        "dependencies": {
+          "J2N": "2.1.0"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Lucene.Net.Analysis.Common/4.8.0-beta00017": {
+        "dependencies": {
+          "Lucene.Net": "4.8.0-beta00017"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.Analysis.Common.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Lucene.Net.Queries/4.8.0-beta00017": {
+        "dependencies": {
+          "Lucene.Net": "4.8.0-beta00017"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.Queries.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Lucene.Net.QueryParser/4.8.0-beta00017": {
+        "dependencies": {
+          "Lucene.Net.Analysis.Common": "4.8.0-beta00017",
+          "Lucene.Net.Queries": "4.8.0-beta00017",
+          "Lucene.Net.Sandbox": "4.8.0-beta00017"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.QueryParser.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Lucene.Net.Sandbox/4.8.0-beta00017": {
+        "dependencies": {
+          "Lucene.Net": "4.8.0-beta00017"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.Sandbox.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "Lucene.Net.Spatial/4.8.0-beta00017": {
+        "dependencies": {
+          "Lucene.Net": "4.8.0-beta00017",
+          "Lucene.Net.Queries": "4.8.0-beta00017",
+          "Spatial4n": "0.4.1.1"
+        },
+        "runtime": {
+          "lib/net8.0/Lucene.Net.Spatial.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.8.0.0"
+          }
+        }
+      },
+      "NetTopologySuite/1.15.0": {
+        "dependencies": {
+          "NetTopologySuite.CoordinateSystems": "1.15.0",
+          "NetTopologySuite.Core": "1.15.0"
+        }
+      },
+      "NetTopologySuite.CoordinateSystems/1.15.0": {
+        "dependencies": {
+          "GeoAPI.CoordinateSystems": "1.7.5"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/NetTopologySuite.CoordinateSystems.dll": {
+            "assemblyVersion": "1.15.0.0",
+            "fileVersion": "1.15.0.0"
+          }
+        }
+      },
+      "NetTopologySuite.Core/1.15.0": {
+        "dependencies": {
+          "GeoAPI.Core": "1.7.5"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/NetTopologySuite.dll": {
+            "assemblyVersion": "1.15.0.0",
+            "fileVersion": "1.15.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
+      "Serilog/4.3.0": {
+        "runtime": {
+          "lib/net9.0/Serilog.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "Spatial4n/0.4.1.1": {
+        "dependencies": {
+          "NetTopologySuite": "1.15.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Spatial4n.dll": {
+            "assemblyVersion": "0.4.1.0",
+            "fileVersion": "0.4.1.1"
+          }
+        }
+      },
+      "System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "22.1.0",
+          "TestableIO.System.IO.Abstractions.Wrappers": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+        "runtime": {
+          "lib/net10.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Core/3.1002.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4",
+          "Serilog": "4.3.0",
+          "System.IO.Abstractions": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Core.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.SearchModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.SearchModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.LuceneSearchModule.Data/3.1002.0": {
+        "dependencies": {
+          "Lucene.Net": "4.8.0-beta00017",
+          "Lucene.Net.Analysis.Common": "4.8.0-beta00017",
+          "Lucene.Net.QueryParser": "4.8.0-beta00017",
+          "Lucene.Net.Spatial": "4.8.0-beta00017",
+          "VirtoCommerce.SearchModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "VirtoCommerce.LuceneSearchModule.Data.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VirtoCommerce.LuceneSearchModule.Web/3.1002.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GeoAPI.CoordinateSystems/1.7.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JBcvkeQFjCW9NTfkII5WiJNmnv0ZtYA/VTVljbIqDFWBJ8kHwu2UHd2MVStD/VVHVnLoyNcDIapsuTENdlyF3g==",
+      "path": "geoapi.coordinatesystems/1.7.5",
+      "hashPath": "geoapi.coordinatesystems.1.7.5.nupkg.sha512"
+    },
+    "GeoAPI.Core/1.7.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Dy/YkgZ1szgx+xbVWqMi+4++Fm6v3szbVdei1LKPRZ3meSvgNSMZxqhar5IAeaTj5LcUHLtLGdfyUtkjnYbg3A==",
+      "path": "geoapi.core/1.7.5",
+      "hashPath": "geoapi.core.1.7.5.nupkg.sha512"
+    },
+    "J2N/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vooz1wbnnqWuS+u93tADXK5Owxo8vLJhSrZ9Ac+KpgDF3GJq9TybXXTF1TFcWILgEtRThc8AOBENEzB0TQH1JA==",
+      "path": "j2n/2.1.0",
+      "hashPath": "j2n.2.1.0.nupkg.sha512"
+    },
+    "Lucene.Net/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7LLWS9nNwx01AyE/KXMh+qdAlzDkRANE8407AO/wEmLL1InzVKFwfsRdRmwg4ILOMFui4xZ1Y54eqvzo3Tf9Vw==",
+      "path": "lucene.net/4.8.0-beta00017",
+      "hashPath": "lucene.net.4.8.0-beta00017.nupkg.sha512"
+    },
+    "Lucene.Net.Analysis.Common/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rPpmww/HgwEwhvfvZgdWITxFsWRoCEpP3+WQBFgbGxTn4eLDr3U/oFoe8KS+8jUNAl2+5atErDrW5JOcFG+gcQ==",
+      "path": "lucene.net.analysis.common/4.8.0-beta00017",
+      "hashPath": "lucene.net.analysis.common.4.8.0-beta00017.nupkg.sha512"
+    },
+    "Lucene.Net.Queries/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RVpZCfa/7pgvytFw64zLqinvZPQt4TojvcFghdAA5vhnpSs5GTbtciPIxFH3wwH3f2dYJywiqYKo1h3JBCXRBA==",
+      "path": "lucene.net.queries/4.8.0-beta00017",
+      "hashPath": "lucene.net.queries.4.8.0-beta00017.nupkg.sha512"
+    },
+    "Lucene.Net.QueryParser/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZrF7EL06qB+2S2K4T3PliIa5EiJ5Ii7c/zFRMhsNozymz+HRHMVoI/nMYSdN6WF7X1Ef1DTeajMwvsbGTfl28Q==",
+      "path": "lucene.net.queryparser/4.8.0-beta00017",
+      "hashPath": "lucene.net.queryparser.4.8.0-beta00017.nupkg.sha512"
+    },
+    "Lucene.Net.Sandbox/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wRAzQZ4Z1yEuAaTwO+RrZB6l3Lz+vNGAiDshf0IjAr8qeVvQj74iodEcff4Bes88bnhqsWLUZlDUg/ygraxX2Q==",
+      "path": "lucene.net.sandbox/4.8.0-beta00017",
+      "hashPath": "lucene.net.sandbox.4.8.0-beta00017.nupkg.sha512"
+    },
+    "Lucene.Net.Spatial/4.8.0-beta00017": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T6qzlrxF6GN7x0nfy1ak8xnTn/SkeapopdE990Pd8H8nIwwAf+McHONEvGbkheDx14djTsDs4r56IYve7kSRMQ==",
+      "path": "lucene.net.spatial/4.8.0-beta00017",
+      "hashPath": "lucene.net.spatial.4.8.0-beta00017.nupkg.sha512"
+    },
+    "NetTopologySuite/1.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UMqlZgOdR9w24BaBh2K70LRK9KMVeuUPQv/70O93Kcta9XPpKSfN8bDCmXMXsQLQfDpRPimLe0asFEp1Mm7h0A==",
+      "path": "nettopologysuite/1.15.0",
+      "hashPath": "nettopologysuite.1.15.0.nupkg.sha512"
+    },
+    "NetTopologySuite.CoordinateSystems/1.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p9AiFHHPcpSW+JzN+/t4L/45l1h3e9Tnsb/7TzGVkoIABd8CwfbGfg/xPxRmjhiXTUvDr/ERQK77/abthL0UcQ==",
+      "path": "nettopologysuite.coordinatesystems/1.15.0",
+      "hashPath": "nettopologysuite.coordinatesystems.1.15.0.nupkg.sha512"
+    },
+    "NetTopologySuite.Core/1.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SMhtTQYfpgHq9+0X9cwcLfUZlUWkmzK2OODHLMjX5KbSLP99xvCAF95CfZ4hnsI7K6qvezOQXbIKJpYdr7yKmg==",
+      "path": "nettopologysuite.core/1.15.0",
+      "hashPath": "nettopologysuite.core.1.15.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
+    },
+    "Serilog/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ==",
+      "path": "serilog/4.3.0",
+      "hashPath": "serilog.4.3.0.nupkg.sha512"
+    },
+    "Spatial4n/0.4.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lDFTOtyOJVgYsi9AEBOWVuRyzkj4cZGd3DRiRFgQcOAIceOWGTTHCMPKbqhtwdQ+y9gf7FOe4TnahWPStpT6ZA==",
+      "path": "spatial4n/0.4.1.1",
+      "hashPath": "spatial4n.0.4.1.1.nupkg.sha512"
+    },
+    "System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QDwmFWQQ84FIRFkOGLwdhJWgOP2Qm+d73edWavzVvYrQ029jjB7CdT24L/F9QvGThN7uYZW6vLLSpvaUBC2Cw==",
+      "path": "system.io.abstractions/22.1.0",
+      "hashPath": "system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YQ/IuNE8gP/+yNwQjdqd6DKhB9ADGjosxuY2IMXcQ3729iXa9QRsPlmIBpk73L0s9E2b+MTYhAR/2Spk8REjvA==",
+      "path": "testableio.system.io.abstractions/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IsW3jQqIiTN4GwdWFx+dzgRL5XR75UDTFVGuuIackPf2d7eH0KKyrx4wuIoASa1XnS9zhgLP39FKwJq6nbbx1w==",
+      "path": "testableio.system.io.abstractions.wrappers/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.wrappers.22.1.0.nupkg.sha512"
+    },
+    "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tZOXFLGjkh8TxgMgKeEcM2HAlz9DwndGl6TFLo6ISHcszFX3FkuPMrtVbmqVjhooWNXrgJ/a9cH9ym5MZL1LAg==",
+      "path": "testably.abstractions.filesystem.interface/10.0.0",
+      "hashPath": "testably.abstractions.filesystem.interface.10.0.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Core/3.1002.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NNVM+Mf+oWRnovLsegLDOSNoxNz5TFnHH+fsVryS45/9pFupin+td5DoTOeOUlfPsOkVmCmu9oCpETbuQlQ/hA==",
+      "path": "virtocommerce.platform.core/3.1002.0",
+      "hashPath": "virtocommerce.platform.core.3.1002.0.nupkg.sha512"
+    },
+    "VirtoCommerce.SearchModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7V/N7/EIVzbl65wqfxlrpwZPGPXZkvzkUs0aruldL06doEVT6QuEqIchDao359K5FWm6qo3smwJXNqm4Wixbnw==",
+      "path": "virtocommerce.searchmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.searchmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.LuceneSearchModule.Data/3.1002.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

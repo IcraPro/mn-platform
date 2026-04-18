@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.FileSystemAssetsModule.Core</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobOptions.RootPath">
+            <summary>
+            The root folder where the files are stored
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobOptions.PublicUrl">
+            <summary>
+            Public base URL for direct access to files stored in the file system
+            </summary>
+            <example>
+            http://localhost:8906/assets 
+            </example>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.GetBlobInfoAsync(System.String)">
+            <summary>
+            Get blob info by URL
+            </summary>
+            <param name="blobUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.OpenRead(System.String)">
+            <summary>
+            Open blob for read by relative or absolute URL
+            </summary>
+            <param name="blobUrl"></param>
+            <returns>blob stream</returns>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.OpenWrite(System.String)">
+            <summary>
+            Open blob for write by relative or absolute URL
+            </summary>
+            <param name="blobUrl"></param>
+            <returns>blob stream</returns>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.SearchAsync(System.String,System.String)">
+            <summary>
+            SearchAsync folders and blobs in folder
+            </summary>
+            <param name="folderUrl">absolute or relative path</param>
+            <param name="keyword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.CreateFolderAsync(VirtoCommerce.AssetsModule.Core.Assets.BlobFolder)">
+            <summary>
+            Create folder in file system within to base directory
+            </summary>
+            <param name="folder"></param>
+        </member>
+        <member name="M:VirtoCommerce.FileSystemAssetsModule.Core.FileSystemBlobProvider.RemoveAsync(System.String[])">
+            <summary>
+            Remove folders and blobs by absolute or relative URLs
+            </summary>
+            <param name="urls"></param>
+        </member>
+    </members>
+</doc>

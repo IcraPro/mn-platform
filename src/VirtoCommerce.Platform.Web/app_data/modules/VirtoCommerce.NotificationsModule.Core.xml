@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.NotificationsModule.Core</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.NotificationsModule.Core.Extensions.NotificationTemplateExtensions.FindTemplateForLanguage``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Finds the template for the given language in the collection of templates. Templates saved in database has priority over predefined ones.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="language"></param>
+            <returns>The template for the language.</returns>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification">
+            <summary>
+            Type of Notification for the Email
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification.From">
+            <summary>
+            Sender
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification.To">
+            <summary>
+            Recipient
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification.ReplyTo">
+            <summary>
+            Address should be used to reply to the message.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification.CC">
+            <summary>
+            Array of CC recipients
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotification.BCC">
+            <summary>
+            Array of BCC recipients
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage">
+            <summary>
+            Email - Kind of message notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.From">
+            <summary>
+            Sender of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.To">
+            <summary>
+            Recipient of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.CC">
+            <summary>
+            Array of CC recipients
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.BCC">
+            <summary>
+            Array of BCC recipients
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.ReplyTo">
+            <summary>
+            Allows to specify a Reply-To address
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.Subject">
+            <summary>
+            Subject of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationMessage.Body">
+            <summary>
+            Body of Notification
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationTemplate">
+            <summary>
+            Template of email notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationTemplate.Subject">
+            <summary>
+            Subject of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationTemplate.Body">
+            <summary>
+            Body of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailNotificationTemplate.Sample">
+            <summary>
+            Sample notification object data, serialized to json.
+            This used to preview the full notification while edit.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.EmailSendingOptions">
+            <summary>
+            Settings of Email Protocol
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailSendingOptions.DefaultSender">
+            <summary>
+            Email address of The Sender by default
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.EmailSendingOptions.Gateway">
+            <summary>
+            Gateway for sending email notifications
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.Notification">
+            <summary>
+            Base class for Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.Notification.TenantIdentity">
+            <summary>
+            For detecting owner
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.Notification.Alias">
+            <summary>
+            This field represents an alias for the notification type
+            and is used only for backward compatibility with old notification names
+            that are stored and used by API clients.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.Notification.Type">
+            <summary>
+            Type of notifications, like Identifier
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.Notification.Kind">
+            <summary>
+            For detecting kind of notifications (email, sms and etc.)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.Notification.CustomValidationError">
+            <summary>
+            need for saving validation errors
+            if the property is not empty then the notification is not sent
+            for seting use SetCustomValidationError
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage">
+            <summary>
+            Base class for message of a notification with information about sending
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.Type">
+            <summary>
+            Discriminator of NotificationMessage, name of real message descendant
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.TenantIdentity">
+            <summary>
+            For detecting owner
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.NotificationId">
+            <summary>
+            Id of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.NotificationType">
+            <summary>
+            Type of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.SendAttemptCount">
+            <summary>
+            Count of sending attempt
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.MaxSendAttemptCount">
+            <summary>
+            Max count of sending attempt
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.LastSendError">
+            <summary>
+            The last error of sending
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.LastSendAttemptDate">
+            <summary>
+            The last date of sending attempt
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.SendDate">
+            <summary>
+            Date of sending
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.LanguageCode">
+            <summary>
+            Code of language
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationMessage.Status">
+            <summary>
+            Status of message
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.NotificationSendResult">
+            <summary>
+            Result of notification sending
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.NotificationTemplate">
+            <summary>
+            Template of Notification with a different language
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationTemplate.LanguageCode">
+            <summary>
+            Code of Language
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationTemplate.Kind">
+            <summary>
+            For detecting kind of notifications (email, sms and etc.)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationTemplate.Type">
+            <summary>
+            Discriminator of NotificationTemplate, name of real template descendant
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria">
+            <summary>
+            Criteria for searching
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria.NotificationType">
+            <summary>
+            Filter notifications by type
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria.TenantId">
+            <summary>
+            Owner Id of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria.TenantType">
+            <summary>
+            Owner Type of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria.IsActive">
+            <summary>
+            Only active notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.NotificationSearchCriteria.Kinds">
+            <summary>
+            Filter notifications by kind (e.g., EmailNotification, SmsNotification)
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.SmsNotification">
+            <summary>
+            Sms - Kind of Notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsNotification.Number">
+            <summary>
+            Number for sms notification
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.SmsNotificationMessage">
+            <summary>
+            Sms - Kind of message notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsNotificationMessage.Number">
+            <summary>
+            Number of recipient Sms notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsNotificationMessage.Message">
+            <summary>
+            Message of Sms Notification
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.SmsNotificationTemplate">
+            <summary>
+            Template of Sms notification
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsNotificationTemplate.Message">
+            <summary>
+            Message of Sms Template Notification
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Model.SmsSendingOptions">
+            <summary>
+            Settings of SMS Protocol
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsSendingOptions.SmsDefaultSender">
+            <summary>
+            SMS address of The Sender by default
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.NotificationsModule.Core.Model.SmsSendingOptions.SmsGateway">
+            <summary>
+            Gateway for sending SMS notifications
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.NotificationsModule.Core.Services.INotificationLayoutRegistrar.SaveChanges">
+            <summary>
+            No-op. Predefined layouts are kept in memory and no longer persisted to the database.
+            Kept for backward compatibility.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationLayoutSearchService">
+            <summary>
+            The service is for to make a query to Database and get a list of notification layouts
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationLayoutService">
+            <summary>
+            The service has a logic query/save of notification layouts to Database
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationMessageSender">
+            <summary>
+            The sender which send a email/sms message via smtp/sendgrid/twilio senders
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationMessageService">
+            <summary>
+            The service has a logic query/save of message to Database
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationRegistrar">
+            <summary>
+            The registrar is for registration a type
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationSearchService">
+            <summary>
+            The service is for to make a query to Database and get a list of notifications
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationSender">
+            <summary>
+            The service has a logic for preparing/sending a message with error handling and throttling
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationService">
+            <summary>
+            The service has a logic query/save of notification to Database
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationTemplateLoader">
+            <summary>
+            Loads templates from different source than db
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.NotificationsModule.Core.Services.INotificationTemplateRenderer">
+            <summary>
+            Rendering text by Templates 
+            </summary>
+        </member>
+    </members>
+</doc>

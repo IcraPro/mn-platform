@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.ExportModule.Core</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportableSearchResult">
+            <summary>
+            Exportable entities search result.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery">
+            <summary>
+            Basic query information for data sources to retrieve exported data: included properties, paging, sorting, etc...
+            Applied data sources expand it by adding certain criteria (for example, additional information for searching)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.ExportTypeName">
+            <summary>
+            This used to instantiate a data query of this type at export start.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.Keyword">
+            <summary>
+            Keyword to search data
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.ObjectIds">
+            <summary>
+            Object keys to search data
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.Sort">
+            <summary>
+            How to sort the dataset matching a query
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.IncludedProperties">
+            <summary>
+            User selected properties to export 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.Skip">
+            <summary>
+            Paging: skip records
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.Take">
+            <summary>
+            Paging: records in one page
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataQuery.IsPreview">
+            <summary>
+            True means preview (lightweight) data is queried, false - full version requested 
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportDataRequest">
+            <summary>
+            Incapsulates data required to start export: export type, query for data to export, provider to record
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataRequest.ExportTypeName">
+            <summary>
+            Full type name of exportable entity
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataRequest.DataQuery">
+            <summary>
+            Query information to retrive exported data
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataRequest.ProviderConfig">
+            <summary>
+            Export provider configuration
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportDataRequest.ProviderName">
+            <summary>
+            Selected export provider name
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition">
+            <summary>
+            Definition of exported entity type
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.TypeName">
+            <summary>
+            Logical type name, given during registration. It could be non-equal to exportable type name.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.Group">
+            <summary>
+            Logical group name. Entity types can be divided into different groups to simplify selection.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.MetaData">
+            <summary>
+            Metadata for this definition (set of properties, version)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.TabularMetaData">
+            <summary>
+            Metadata for this definition in case of supported tabular export (flat files, like *.csv).
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.ExportDataQueryType">
+            <summary>
+            Specific type name with which we could query exported type data.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.IsTabularExportSupported">
+            <summary>
+            Returns true if tabular export supported, <see cref="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.TabularMetaData"/> is set .       
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.DataSourceFactory">
+            <summary>
+            Factory function to create a data source for this type
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition.RestrictDataSelectivity">
+            <summary>
+            Restrict access to select data for export
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportedTypeMetadata">
+            <summary>
+            Metadata for exported type: properties information and version
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypeMetadata.PropertyInfos">
+            <summary>
+            Exportable property infos array
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportedTypePropertyInfo">
+            <summary>
+            Export property information
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypePropertyInfo.FullName">
+            <summary>
+            Property name with the path from the exportable entity (e.g. for entity containing PropertyA with nested properties it could be "PropertyA.PropertyB.PropertyC").
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypePropertyInfo.Group">
+            <summary>
+            Property group. Properties can be divided into different groups to simplify selection.
+            Group could be used for grouping property infos.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypePropertyInfo.DisplayName">
+            <summary>
+            User-friendly name for this property
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportedTypePropertyInfo.IsRequired">
+            <summary>
+            * Reserved for future use
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportProgressInfo">
+            <summary>
+            Export progress information
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Model.ExportProgressInfo.#ctor">
+            <summary>
+            Export progress information
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportProviderConfigurationBase">
+            <summary>
+            Basic implementation of provider configuration
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Model.ExportProviderConfigurationBase.#ctor">
+            <summary>
+            Default protected constructor 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.ExportProviderConfigurationBase.Type">
+            <summary>
+            Type discriminator to instantiate proper descendant (e.g. thru the universal PolymorphJsonConverter)
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ExportPushNotification">
+            <summary>
+            Push notification about export
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.IExportable">
+            <summary>
+            Interface to implement exportаble entities.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IExportProviderConfiguration.Type">
+            <summary>
+            Type discriminator to instantiate proper descendant (e.g. thru the universal PolymorphJsonConverter)
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.IExportViewable">
+            <summary>
+            Common (default) set of properties for universal viewing.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource">
+            <summary>
+            Interface for implementing a data source iterator
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.CurrentPageNumber">
+            <summary>
+            The number of the page that will returned by <see cref = "M:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.Fetch" />
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.PageSize">
+            <summary>
+            The number of records in the page
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.Skip">
+            <summary>
+            Specifies the offset for fetching records
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.Take">
+            <summary>
+            Specifies the number of fetched records
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.GetTotalCount">
+            <summary>
+            Gets total count of records for this data source
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.Fetch">
+            <summary>
+            Gets the data page from the source according to currently set <see cref = "P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.CurrentPageNumber" /> and <see cref = "P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.PageSize" />.
+            Implementations should increment <see cref="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.CurrentPageNumber"/> after fetch.
+            </summary>
+            <returns>Is some data received</returns>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Model.IPagedDataSource.Items">
+            <summary>
+            Property to get received data
+            </summary>
+            <returns>Exportable entities received after Fetch() </returns>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Model.ITabularConvertible">
+            <summary>
+            Provides conversion to tabular representation. 
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Model.ITabularConvertible.ToTabular">
+            <summary>
+            Converts to tabular representation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.IDataExporter">
+            <summary>
+            Interface for data exporter implementation.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.IExportProvider">
+            <summary>
+            Interface for export provider implementation.
+            The export provider allows to write object using the given TextWriter.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Services.IExportProvider.TypeName">
+            <summary>
+            Provider name.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Services.IExportProvider.ExportedFileExtension">
+            <summary>
+            Extension for resulting export file.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Services.IExportProvider.IsTabular">
+            <summary>
+            Returns true if provider supports only plain tabular objects (without nested entities).
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.ExportModule.Core.Services.IExportProvider.Configuration">
+            <summary>
+            Returns provider configuration.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Services.IExportProvider.WriteRecord(System.IO.TextWriter,VirtoCommerce.ExportModule.Core.Model.IExportable)">
+            <summary>
+            Writes object using the given TextWriter.
+            </summary>
+            <param name="writer">TextWriter to write to.</param>
+            <param name="objectToRecord">Object to write.</param>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.IExportProviderFactory">
+            <summary>
+            Interface for implementing a factory to create export providers.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.IKnownExportTypesRegistrar">
+            <summary>
+            Interface for implementing a metadata registrar for exportable entities.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Services.IKnownExportTypesRegistrar.RegisterType(VirtoCommerce.ExportModule.Core.Model.ExportedTypeDefinition)">
+            <summary>
+            Registers type metadata of exportable entity.
+            </summary>
+            <param name="exportedTypeDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.IKnownExportTypesResolver">
+            <summary>
+            Interface for implementing a metadata resolver for exportable entities.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Services.IKnownExportTypesResolver.ResolveExportedTypeDefinition(System.String)">
+            <summary>
+            Returns metadata about specified type of exportable entity.
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.ExportModule.Core.Services.ITabularDataConverter">
+            <summary>
+            Interface to convert exportable entity to tabular representation.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Core.Services.ITabularDataConverter.ToTabular(VirtoCommerce.ExportModule.Core.Model.IExportable)">
+            <summary>
+            Converts exportable entity to tabular representation.
+            </summary>
+            <param name="obj">Exportable entity.</param>
+            <returns>Tabular (plain) representation.</returns>
+        </member>
+    </members>
+</doc>

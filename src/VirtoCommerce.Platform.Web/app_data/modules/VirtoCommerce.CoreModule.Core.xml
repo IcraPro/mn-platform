@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.CoreModule.Core</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.CoreModule.Core.Common.CounterOptions">
+            <summary>
+            Represents counter options for ITenantUniqueNumberGenerator.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.CounterOptions.NumberTemplate">
+            <summary>
+            Represents number temp[late 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.CounterOptions.ResetCounterType">
+            <summary>
+            Represents type of counter reset. Can be one of this value: None, Daily, Weekly, Monthly, Yearly. Default value: Daily  
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.CounterOptions.StartCounterFrom">
+            <summary>
+            Represents start counter from value. Default value: 1
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.CounterOptions.CounterIncrement">
+            <summary>
+            Represents counter increment value. Default value: 1
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Common.CounterOptions.Parse(System.String)">
+            <summary>
+            Parse counter options from string template: "numberTemplate" or "number_template@reset_counter_type:start_counter_from:counter_increment".
+            </summary>
+            <param name="template"></param>
+            <returns></returns>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.EvaluationContextBase.UserGroups">
+            <summary>
+            Any tags or groups belongs to user such as VIP, Wholesaler etc
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Common.IEvaluationContext">
+            <summary>
+            Represent interface based for any dynamic evaluation context (for example dynamic expression)
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Common.IInheritable">
+            <summary>
+            Used for mark types which can be inherited form parent object (Product -> Variations  example)
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Common.ITenantUniqueNumberGenerator">
+            <summary>
+            Represents interface for unique number generation for tenant.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Common.ITenantUniqueNumberGenerator.GenerateNumber(System.String,VirtoCommerce.CoreModule.Core.Common.CounterOptions)">
+            <summary>
+            Generates unique number using given template with resetCounterType for tentantId.
+            </summary>
+            <param name="tenantId"></param>
+            <param name="counterOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Common.ITenantUniqueNumberGenerator.GenerateNumber(System.String,System.String)">
+            <summary>
+            Generates unique number using given template for tentantId.
+            </summary>
+            <param name="tenantId"></param>
+            <param name="numberTemplate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Common.IUniqueNumberGenerator.GenerateNumber(System.String)">
+            <summary>
+            Generates unique number using given template. The template depends on implementation.
+            </summary>
+            <param name="numberTemplate">The number template.</param>
+            <returns></returns>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.Language.CultureName">
+            <summary>
+            culture name format (e.g. en-US).
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.Language.ThreeLeterLanguageName">
+            <summary>
+             Gets the ISO 639-2 three-letter code for the language.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.Language.TwoLetterLanguageName">
+            <summary>
+              Gets the ISO 639-1 two-letter code for the language.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.Language.TwoLetterRegionName">
+            <summary>
+             Gets the two-letter code defined in ISO 3166 for the country/region.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.Language.ThreeLetterRegionName">
+            <summary>
+             Gets the three-letter code defined in ISO 3166 for the country/region.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.SequenceNumberGeneratorOptions.RetryCount">
+            <summary>
+            Defines the number of retries to generate unique number if either DbUpdateConcurrencyException or InvalidOperationException is occured.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.SequenceNumberGeneratorOptions.RetryDelay">
+            <summary>
+            Defines the delay between retries in seconds.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Common.SequenceNumberGeneratorOptions.UseGlobalTenantId">
+            <summary>
+            Defines usage of the static tenant id instead of store id for generating unique number.
+            Can be useful when you want to have golobal counter for all stores/tenants.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Conditions.IConditionTree.AvailableChildren">
+            <summary>
+            List of all available children for current tree node (is used in expression designer)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Conditions.IConditionTree.MergeFromPrototype(VirtoCommerce.CoreModule.Core.Conditions.IConditionTree)">
+            <summary>
+            Merge tree structure from prototype
+            </summary>
+            <param name="prototype"></param>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Conditions.UserGroupIsCondition.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+             ((EvaluationContextBase)x).UserGroupsContains
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Conditions.UserGroupsContainsCondition.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+             ((EvaluationContextBase)x).UserGroupsContains
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Currency.Currency">
+            <summary>
+            Currency
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.Code">
+            <summary>
+            Currency code may be used ISO 4217.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.Name">
+            <summary>
+             name of the currency
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.IsPrimary">
+            <summary>
+            Flag specifies that this is the primary currency
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.ExchangeRate">
+            <summary>
+            The exchange rate against the primary exchange rate of the currency.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.Symbol">
+            <summary>
+            Currency symbol
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Currency.CustomFormatting">
+            <summary>
+            Custom formatting pattern
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Currency.DefaultMoneyRoundingPolicy.Round(System.Decimal,System.Int32,VirtoCommerce.CoreModule.Core.Enums.RoundingType,System.MidpointRounding)">
+            <summary>
+            Round
+            </summary>
+            <param name="value">Value to round</param>
+            <param name="decimals">Number of digits in fractional part</param>
+            <param name="roundingType">The rounding type</param>
+            <param name="midpointRounding">Specifies how mathematical rounding methods should process a number that is midway between two numbers</param>
+            <returns>Rounded value</returns>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Currency.ICurrencyService">
+            <summary>
+            Represent DAL for currencies 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.InternalAmount">
+            <summary>
+            Accesses the internal representation of the value of the Money.
+            </summary>
+            <returns>A decimal with the internal amount stored for this Money.</returns>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.Amount">
+            <summary>
+            Rounds the amount to the number of significant decimal digits
+            of the associated currency using MidpointRounding.AwayFromZero.
+            </summary>
+            <returns>A decimal with the amount rounded to the significant number of decimal digits.</returns>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.TruncatedAmount">
+            <summary>
+            Truncates the amount to the number of significant decimal digits
+            of the associated currency.
+            </summary>
+            <returns>A decimal with the amount truncated to the significant number of decimal digits.</returns>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.FormattedAmount">
+            <example>
+            $777.77
+            </example>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.FormattedAmountWithoutPoint">
+            <example>
+            $777
+            </example>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.FormattedAmountWithoutCurrency">
+            <example>
+            777.77
+            </example>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.FormattedAmountWithoutPointAndCurrency">
+            <example>
+            777
+            </example>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Currency.Money.DecimalDigits">
+            <summary>
+            Gets the number of decimal digits for the associated currency.
+            </summary>
+            <returns>An int containing the number of decimal digits.</returns>
+        </member>
+        <member name="M:VirtoCommerce.CoreModule.Core.Currency.Money.Allocate(System.Int32)">
+            <summary>
+            Evenly distributes the amount over n parts, resolving remainders that occur due to rounding
+            errors, thereby guaranteeing the post-condition: result->sum(r|r.amount) = this.amount and
+            x elements in result are greater than at least one of the other elements, where x = amount mod n.
+            </summary>
+            <param name="n">Number of parts over which the amount is to be distributed.</param>
+            <returns>Array with distributed Money amounts.</returns>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Outlines.Outline">
+            <summary>
+            Represents the path from the catalog to one of the child objects (product or category):
+            catalog/parent-category1/.../parent-categoryN/object
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.Outline.Items">
+            <summary>
+            Outline parts
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem">
+            <summary>
+            Represents one outline element: catalog, category or product.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem.Id">
+            <summary>
+            Object id
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem.SeoObjectType">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem.SeoInfos">
+            <summary>
+            All SEO records for the object
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem.Name">
+            <summary>
+            The name of current item
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Outlines.OutlineItem.HasVirtualParent">
+            <summary>
+            True when this object is linked to the virtual parent.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Package.PackageType">
+            <summary>
+            Represent predefined dimensions package type
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Package.PackageType.Name">
+            <summary>
+            Package type name
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CoreModule.Core.Seo.ISeoDuplicatesDetector">
+            <summary>
+            Used to detect seo duplicates within any object based on it inner structure and relationships (store, catalogs, categories etc)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.SemanticUrl">
+            <summary>
+            Slug
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.PageTitle">
+            <summary>
+            head title tag content
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.MetaDescription">
+            <summary>
+            <meta name="description" />
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.MetaKeywords">
+            <summary>
+            <meta name="keywords" />
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.StoreId">
+            <summary>
+            Tenant StoreId which SEO defined
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.ObjectId">
+            <summary>
+            SEO related object id
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.ObjectType">
+            <summary>
+            SEO related object type name
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Seo.SeoInfo.IsActive">
+            <summary>
+            Active/Inactive
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.CoreModule.Core.Tax.ITaxable.TaxType">
+            <summary>
+            Tax category or type
+            </summary>
+        </member>
+    </members>
+</doc>

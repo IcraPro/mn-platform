@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.InventoryModule.Data</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.InventoryModule.Data.Model.InventoryEntity.PreorderAvailabilityDate">
+            <summary>
+            The date from when the preorder is allowed. 
+            If not set AllowPreorder has no effect and not available
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.InventoryModule.Data.Model.InventoryEntity.BackorderAvailabilityDate">
+            <summary>
+            The date from when the backorder is allowed. 
+            If not set AllowBackorder has no effect and not available
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.InventoryModule.Data.Search.Indexing.ProductAvailabilityChangesProvider">
+            <summary>
+            Extend product indexation process. Invalidate products as changed when products availability in fulfillment centers updated.
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.InventoryModule.Data.Search.Indexing.ProductAvailabilityChangesProvider.#ctor(VirtoCommerce.Platform.Core.ChangeLog.IChangeLogSearchService,VirtoCommerce.InventoryModule.Core.Services.IInventoryService)">
+            <summary>
+            Extend product indexation process. Invalidate products as changed when products availability in fulfillment centers updated.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.InventoryModule.Data.Search.Indexing.ProductAvailabilityDocumentBuilder">
+            <summary>
+            Extends product indexation process and provides available_in field for indexed products
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.InventoryModule.Data.Search.Indexing.ProductAvailabilityDocumentBuilder.#ctor(VirtoCommerce.InventoryModule.Core.Services.IInventorySearchService)">
+            <summary>
+            Extends product indexation process and provides available_in field for indexed products
+            </summary>
+        </member>
+    </members>
+</doc>

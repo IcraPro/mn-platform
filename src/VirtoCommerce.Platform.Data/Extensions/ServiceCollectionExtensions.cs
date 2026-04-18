@@ -10,6 +10,7 @@ using VirtoCommerce.Platform.Core.Events;
 using VirtoCommerce.Platform.Core.ExportImport;
 using VirtoCommerce.Platform.Core.GenericCrud;
 using VirtoCommerce.Platform.Core.Localizations;
+using VirtoCommerce.Platform.Core.Seeding;
 using VirtoCommerce.Platform.Core.TransactionFileManager;
 using VirtoCommerce.Platform.Core.ZipFile;
 using VirtoCommerce.Platform.Data.ChangeLog;
@@ -18,6 +19,7 @@ using VirtoCommerce.Platform.Data.DynamicProperties;
 using VirtoCommerce.Platform.Data.ExportImport;
 using VirtoCommerce.Platform.Data.Localizations;
 using VirtoCommerce.Platform.Data.Repositories;
+using VirtoCommerce.Platform.Data.Seeding;
 using VirtoCommerce.Platform.Data.Settings;
 using VirtoCommerce.Platform.Data.ZipFile;
 
@@ -58,6 +60,9 @@ namespace VirtoCommerce.Platform.Data.Extensions
             services.AddSingleton<ICountriesService, FileSystemCountriesService>();
             services.AddSingleton<IFileSystem, FileSystem>();
             services.AddTransient<IZipFileWrapper, ZipFileWrapper>();
+
+            services.AddScoped<IDataSeedRunner, DataSeedRunner>();
+            services.AddScoped<IDataSeeder, PlatformDataSeeder>();
 
             return services;
         }

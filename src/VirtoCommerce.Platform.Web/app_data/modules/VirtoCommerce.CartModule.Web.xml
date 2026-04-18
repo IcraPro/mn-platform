@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.CartModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.GetCartById(System.String)">
+            <summary>
+            Get shopping cart by id
+            </summary>
+            <param name="cartId">Shopping cart id</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.SearchShoppingCart(VirtoCommerce.CartModule.Core.Model.Search.ShoppingCartSearchCriteria)">
+            <summary>
+            Search shopping carts by given criteria
+            </summary>
+            <param name="criteria">Shopping cart search criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.Create(VirtoCommerce.CartModule.Core.Model.ShoppingCart)">
+            <summary>
+            Create shopping cart
+            </summary>
+            <param name="cart">Shopping cart model</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.UpdateShoppingCart(VirtoCommerce.CartModule.Core.Model.ShoppingCart)">
+            <summary>
+            Update shopping cart
+            </summary>
+            <param name="cart">Shopping cart model</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.DeleteCarts(System.String[])">
+            <summary>
+            Delete shopping carts by ids
+            </summary>
+            <param name="ids">Array of shopping cart ids</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.RecalculateTotals(VirtoCommerce.CartModule.Core.Model.ShoppingCart)">
+            <summary>
+            Calculates totals for cart.
+            </summary>
+            <param name="cart">Shopping cart model</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.PatchCart(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CartModule.Core.Model.ShoppingCart})">
+            <summary>
+            Partial update for the specified ShoppingCart by id
+            </summary>
+            <param name="id">ShoppingCart id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.PatchCartItem(System.String,System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CartModule.Core.Model.LineItem})">
+            <summary>
+            Partial update for the specified ShoppingCart LineItem by id
+            </summary>
+            <param name="cartId">ShoppingCart id</param>
+            <param name="lineItemId">LineItem id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.PatchCartShipment(System.String,System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CartModule.Core.Model.Shipment})">
+            <summary>
+            Partial update for the specified ShoppingCart Shipment by id
+            </summary>
+            <param name="cartId">ShoppingCart id</param>
+            <param name="shipmentId">Shipment id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+        </member>
+        <member name="M:VirtoCommerce.CartModule.Web.Controllers.Api.CartModuleController.PatchCartPayment(System.String,System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.CartModule.Core.Model.Payment})">
+            <summary>
+            Partial update for the specified ShoppingCart Payment by id
+            </summary>
+            <param name="cartId">ShoppingCart id</param>
+            <param name="paymentId">Payment id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+        </member>
+    </members>
+</doc>

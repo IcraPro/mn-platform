@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.StoreModule.Core</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.StoreModule.Core.Extensions.SeoExtensions.GetBestMatchingSeoInfo(VirtoCommerce.Seo.Core.Models.ISeoSupport,VirtoCommerce.StoreModule.Core.Model.Store,System.String)">
+            <summary>
+            Returns SEO record with the highest score
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Core.Extensions.SeoExtensions.GetBestMatchingSeoInfo(System.Collections.Generic.IEnumerable{VirtoCommerce.Seo.Core.Models.SeoInfo},VirtoCommerce.StoreModule.Core.Model.Store,System.String)">
+            <summary>
+            Returns SEO record with the highest score
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.StoreState">
+            <summary>
+            Store current state (Open, Closed, RestrictedAccess)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.Catalog">
+            <summary>
+            Catalog id used as primary store catalog
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.Url">
+            <summary>
+            Store storefront url
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.SecureUrl">
+            <summary>
+            Store storefront https url
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.Email">
+            <summary>
+            Primary store contact email can be used for store event notifications and for feed back
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.MainFulfillmentCenterId">
+            <summary>
+            Primary (default) fulfillment center id
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.AdditionalFulfillmentCenterIds">
+            <summary>
+            Alternate fulfillment centers ids
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.MainReturnsFulfillmentCenterId">
+            <summary>
+            Primary (default) fulfillment center for order return
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.ReturnsFulfillmentCenterIds">
+            <summary>
+            Alternate fulfillment centers for order return
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.Languages">
+            <summary>
+            All store supported languages
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.Currencies">
+            <summary>
+            All store supported currencies
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.StoreModule.Core.Model.Store.TrustedGroups">
+            <summary>
+            All store trusted groups (group of stores that shared the user logins)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Core.Model.Store.FormatEmailWithName(System.String,System.String)">
+            <summary>
+            Format email and name into single address string 
+            </summary>
+            <param name="email"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.StoreModule.Core.Security.StoreSelectedScope">
+            <summary>
+            Restricts access rights to a particular store
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.StoreModule.Core.Services.IStoreService.GetUserAllowedStoreIdsAsync(VirtoCommerce.Platform.Core.Security.ApplicationUser)">
+            <summary>
+            Returns list of store ids which passed user can sign in to
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

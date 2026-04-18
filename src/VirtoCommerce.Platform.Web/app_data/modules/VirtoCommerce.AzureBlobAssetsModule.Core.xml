@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.AzureBlobAssetsModule.Core</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobOptions.CdnUrl">
+            <summary>
+            Url of the CDN server
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobOptions.AllowBlobPublicAccess">
+            <summary>
+            If true, create new blob containers with access type PublicAccessType.Blob
+            Otherwise, PublicAccessType.None
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobProvider.GetBlobInfoAsync(System.String)">
+            <summary>
+            Get blob info by URL
+            </summary>
+            <param name="blobUrl">Absolute or relative URL to get blob</param>
+        </member>
+        <member name="M:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobProvider.OpenRead(System.String)">
+            <summary>
+            Open stream for read blob by relative or absolute url
+            </summary>
+            <param name="blobUrl"></param>
+            <returns>blob stream</returns>
+        </member>
+        <member name="M:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobProvider.OpenWrite(System.String)">
+            <summary>
+            Open blob for write by relative or absolute url
+            </summary>
+            <param name="blobUrl"></param>
+            <returns>blob stream</returns>
+        </member>
+        <member name="M:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobProvider.MoveBlob(Azure.Storage.Blobs.BlobContainerClient,System.String,System.String,System.Boolean)">
+            <summary>
+            Move blob new URL and remove old blob
+            </summary>
+            <param name="container"></param>
+            <param name="oldUrl"></param>
+            <param name="newUrl"></param>
+            <param name="isCopy"></param>
+        </member>
+        <member name="M:VirtoCommerce.AzureBlobAssetsModule.Core.AzureBlobProvider.GetOutlineFromUrl(System.String)">
+            <summary>
+            Return outline folder from absolute or relative URL
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.AzureBlobAssetsModule.Core.FlushLessStream">
+            <summary>
+            Wraps stream that can't flush multiple times (like BlockBlobWriteStream).
+            Flushes only once at Dispose.
+            </summary>
+        </member>
+    </members>
+</doc>

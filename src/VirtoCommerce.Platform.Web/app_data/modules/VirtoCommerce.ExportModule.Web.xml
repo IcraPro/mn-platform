@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.ExportModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.GetExportedKnownTypes">
+            <summary>
+            Gets the list of types ready to be exported
+            </summary>
+            <returns>The list of exported known types</returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.GetExportProviders">
+            <summary>
+            Gets the list of available export providers
+            </summary>
+            <returns>The list of export providers</returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.GetData(VirtoCommerce.ExportModule.Core.Model.ExportDataRequest)">
+            <summary>
+            Provides generic viewable entities collection based on the request
+            </summary>
+            <param name="request">Data request</param>
+            <returns>Viewable entities search result</returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.RunExport(VirtoCommerce.ExportModule.Core.Model.ExportDataRequest)">
+            <summary>
+            Starts export task
+            </summary>
+            <param name="request">Export task description</param>
+            <returns>Export task id</returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.CancelExport(VirtoCommerce.ExportModule.Web.Model.ExportCancellationRequest)">
+            <summary>
+            Attempts to cancel export task
+            </summary>
+            <param name="cancellationRequest">Cancellation request with task id</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.ExportModule.Web.Controllers.ExportController.DownloadExportFile(System.String)">
+            <summary>
+            Downloads file by its name
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -11,11 +11,13 @@ using NetEscapades.AspNetCore.SecurityHeaders.Headers.ContentSecurityPolicy;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Security.Search;
+using VirtoCommerce.Platform.Core.Seeding;
 using VirtoCommerce.Platform.Security;
 using VirtoCommerce.Platform.Security.Exceptions;
 using VirtoCommerce.Platform.Security.Handlers;
 using VirtoCommerce.Platform.Security.OpenIddict;
 using VirtoCommerce.Platform.Security.Repositories;
+using VirtoCommerce.Platform.Security.Seeding;
 using VirtoCommerce.Platform.Security.Services;
 
 namespace VirtoCommerce.Platform.Web.Security
@@ -68,6 +70,10 @@ namespace VirtoCommerce.Platform.Web.Security
             services.AddSingleton<RevokeUserTokenEventHandler>();
 
             services.AddTransient<IServerCertificateService, ServerCertificateService>();
+
+            services.AddOptions<SecuritySeedOptions>()
+                    .BindConfiguration("InitialData");
+            services.AddScoped<IDataSeeder, SecurityDataSeeder>();
 
             return services;
         }

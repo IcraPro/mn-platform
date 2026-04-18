@@ -404,50 +404,8 @@ namespace VirtoCommerce.Platform.Data.PostgreSql.Migrations.Security
                 column: "ApiKey",
                 unique: true);
 
-            migrationBuilder.Sql(@"INSERT INTO ""AspNetUsers"" (
-                ""Id"",
-                ""IsAdministrator"",
-                ""UserName"",
-                ""NormalizedUserName"",
-                ""PasswordHash"",
-                ""SecurityStamp"",
-                ""ConcurrencyStamp"",
-                ""PasswordExpired"",
-                ""Email"",
-                ""NormalizedEmail"",
-                ""EmailConfirmed"",
-                ""PhoneNumberConfirmed"",
-                ""TwoFactorEnabled"",
-                ""LockoutEnabled"",
-                ""AccessFailedCount"",
-                ""CreatedDate""
-            )
-            SELECT
-                '1eb2fa8ac6574541afdb525833dadb46',
-                true,
-                'admin',
-                'ADMIN',
-                'AHQSmKnSLYrzj9vtdDWWnUXojjpmuDW2cHvWloGL9UL3TC9UCfBmbIuR2YCyg4BpNg==',
-                'IK5VZXH6VRIZ3E6OKHEIS7TC24VT4RD3',
-                '47548002-dd64-48e0-bb51-e9516fd880c2',
-                true,
-                'admin@vc-demostore.com',
-                'ADMIN@VC-DEMOSTORE.COM',
-                true,
-                true,
-                false,
-                true,
-                0,
-                Now()
-            WHERE
-                NOT EXISTS (
-                    SELECT
-                        *
-                    FROM
-                        ""AspNetUsers""
-                    WHERE
-                        ""UserName"" = 'admin'
-                );");
+            // Admin user is no longer seeded here.
+            // See SecurityDataSeeder which creates the initial admin via UserManager (provider-agnostic).
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

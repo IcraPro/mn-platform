@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.AssetsModule.Data</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.AssetsModule.Data.Model.AssetEntryEntity.Name">
+            <summary>
+            File name
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.AssetsModule.Data.Model.AssetEntryEntity.LanguageCode">
+            <summary>
+            Language code
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.AssetsModule.Data.Model.AssetEntryEntity.Group">
+            <summary>
+            User defined group
+            </summary>
+        </member>
+    </members>
+</doc>

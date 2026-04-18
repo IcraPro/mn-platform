@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.OrdersModule.Web</name>
+    </assembly>
+    <members>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.SearchCustomerOrder(VirtoCommerce.OrdersModule.Core.Model.Search.CustomerOrderSearchCriteria)">
+            <summary>
+            Search customer orders by given criteria
+            </summary>
+            <param name="criteria">criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetByNumber(System.String,System.String)">
+            <summary>
+            Find customer order by number
+            </summary>
+            <remarks>Return a single customer order with all nested documents or null if order was not found</remarks>
+            <param name="number">customer order number</param>
+            <param name="respGroup"></param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetById(System.String,System.String)">
+            <summary>
+            Find customer order by id
+            </summary>
+            <remarks>Return a single customer order with all nested documents or null if order was not found</remarks>
+            <param name="id">customer order id</param>
+            <param name="respGroup"></param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetByOuterId(System.String,System.String)">
+            <summary>
+            Find customer order by outer id
+            </summary>
+            <remarks>Return a single customer order with all nested documents or null if order was not found</remarks>
+            <param name="outerId">customer order outer id</param>
+            <param name="responseGroup"></param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.CalculateTotals(VirtoCommerce.OrdersModule.Core.Model.CustomerOrder)">
+            <summary>
+            Calculate order totals after changes
+            </summary>
+            <remarks>Return order with recalculated totals</remarks>
+            <param name="customerOrder">Customer order</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.ProcessOrderPaymentsWithoutBankCardInfo(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Register customer order payment in external payment system (without bankCardInfo).
+            It's a workaround method, allowing to accept requests without bankCardInfo.
+            </summary>
+            <param name="orderId">customer order id</param>
+            <param name="paymentId">payment id</param>
+            <param name="cancellationToken">cancellationToken</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.ProcessOrderPayments(System.String,System.String,VirtoCommerce.PaymentModule.Core.Model.BankCardInfo,System.Threading.CancellationToken)">
+            <summary>
+            Register customer order payment in external payment system
+            </summary>
+            <remarks>Used in storefront checkout or manual order payment registration</remarks>
+            <param name="orderId">customer order id</param>
+            <param name="paymentId">payment id</param>
+            <param name="bankCardInfo">banking card information</param>
+            <param name="cancellationToken">cancellationToken</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.CreateOrderFromCart(System.String)">
+            <summary>
+            Create new customer order based on shopping cart.
+            </summary>
+            <param name="cartId">shopping cart id</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.CreateOrder(VirtoCommerce.OrdersModule.Core.Model.CustomerOrder)">
+            <summary>
+            Add new customer order to system
+            </summary>
+            <param name="customerOrder">customer order</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.UpdateOrder(VirtoCommerce.OrdersModule.Core.Model.CustomerOrder)">
+            <summary>
+             Update a existing customer order 
+            </summary>
+            <param name="customerOrder">customer order</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetNewShipment(System.String)">
+            <summary>
+            Get new shipment for specified customer order
+            </summary>
+            <remarks>Return new shipment document with populates all required properties.</remarks>
+            <param name="id">customer order id </param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetNewPayment(System.String)">
+            <summary>
+            Get new payment for specified customer order
+            </summary>
+            <remarks>Return new payment  document with populates all required properties.</remarks>
+            <param name="id">customer order id </param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.DeleteOrdersByIds(System.String[])">
+            <summary>
+             Delete a whole customer orders
+            </summary>
+            <param name="ids">customer order ids for delete</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetDashboardStatisticsSettingsAsync">
+            <summary>
+            Get dashboard statistics settings
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.GetDashboardStatisticsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+             Get a some order statistic information for Commerce manager dashboard
+            </summary>
+            <param name="start">start interval date</param>
+            <param name="end">end interval date</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.PostProcessPayment(VirtoCommerce.OrdersModule.Core.Model.PaymentCallbackParameters)">
+            <summary>
+            Payment callback operation used by external payment services to inform post process payment in our system
+            </summary>
+            <param name="callback">payment callback parameters</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.PostProcessPaymentRaw">
+            <summary>
+            Payment callback operation used by external payment services to inform post process payment in our system
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.PostProcessPaymentForm">
+            <summary>
+            Payment callback operation used by external payment services to inform post process payment in our system
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleController.PatcOrder(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.OrdersModule.Core.Model.CustomerOrder})">
+            <summary>
+            Partial update for the specified Orde by id
+            </summary>
+            <param name="id">Orde id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.SearchOrderPayments(VirtoCommerce.OrdersModule.Core.Model.Search.PaymentSearchCriteria)">
+            <summary>
+            Search  order payments by given criteria
+            </summary>
+            <param name="criteria">criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.GetById(System.String,System.String)">
+            <summary>
+            Find  order payment by id
+            </summary>
+            <remarks>Return a single order payment with all nested documents or null if payment was not found</remarks>
+            <param name="id"> order payment id</param>
+            <param name="respGroup"></param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.GetByOuterId(System.String,System.String)">
+            <summary>
+            Get order payment by outer id
+            </summary>
+            <remarks>Return a single order payment with all nested documents or null if payment was not found</remarks>
+            <param name="outerId"> order payment outer id</param>
+            <param name="responseGroup"></param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.CreatePayment(VirtoCommerce.OrdersModule.Core.Model.PaymentIn)">
+            <summary>
+            Create or update order payment
+            </summary>
+            <param name="payment">payment</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.DeleteOrderPaymentsByIds(System.String[])">
+            <summary>
+             Delete an order payment
+            </summary>
+            <param name="ids">order payment ids</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModulePaymentsController.PatchPayment(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.OrdersModule.Core.Model.PaymentIn})">
+            <summary>
+            Partial update for the specified Payment by id
+            </summary>
+            <param name="id">Payment id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleShipmentsController.SearchOrderShipments(VirtoCommerce.OrdersModule.Core.Model.Search.ShipmentSearchCriteria)">
+            <summary>
+            Search shipments by given criteria
+            </summary>
+            <param name="criteria">criteria</param>
+        </member>
+        <member name="M:VirtoCommerce.OrdersModule.Web.Controllers.Api.OrderModuleShipmentsController.PatchShipment(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{VirtoCommerce.OrdersModule.Core.Model.Shipment})">
+            <summary>
+            Partial update for the specified Shipment by id
+            </summary>
+            <param name="id">Shipment id</param>
+            <param name="patchDocument">JsonPatchDocument object with fields to update</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.SubscriptionModule.Core</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.PaymentPlan.Interval">
+            <summary>
+            (days, months, years) - billing interval
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.PaymentPlan.IntervalCount">
+            <summary>
+            - to set more customized intervals (every 5 month)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.PaymentPlan.TrialPeriodDays">
+            <summary>
+             subscription trial period in days 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.StoreId">
+            <summary>
+            Search within specified store
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.Number">
+            <summary>
+            Search by subscription number
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.CustomerOrderId">
+            <summary>
+            Search subscription for related order id
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.StartDate">
+            <summary>
+            Search subscription in StartDate and EndDate range inclusive
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.Statuses">
+            <summary>
+            Search with specified statuses
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Search.SubscriptionSearchCriteria.OuterId">
+            <summary>
+            Search by external subscription system id
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.Balance">
+            <summary>
+            Subscription actual balance
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.Number">
+            <summary>
+            Subscription number
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.Interval">
+            <summary>
+            (days, months, years) - billing interval
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.IntervalCount">
+            <summary>
+            - to set more customized intervals (every 5 month)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.TrialPeriodDays">
+            <summary>
+             subscription trial period in days 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.CustomerOrderPrototype">
+            <summary>
+            Order prototype for future orders. Changing this prototype can affect for future orders of this subscription
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.CustomerOrdersIds">
+            <summary>
+            List of all orders ids created on the basis of the subscription
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.CustomerOrders">
+            <summary>
+            List of all orders  created on the basis of the subscription
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.StartDate">
+            <summary>
+            Date the most recent update to this subscription started.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.EndDate">
+            <summary>
+            The date the subscription ended
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.OuterId">
+            <summary>
+            External Subscription entity system ID
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.SubscriptionModule.Core.Model.Subscription.Comment">
+            <summary>
+            The subscription comment
+            </summary>
+        </member>
+        <member name="F:VirtoCommerce.SubscriptionModule.Core.Model.SubscriptionStatus.Trialing">
+            <summary>
+             active when the trial period is over
+            </summary>
+        </member>
+        <member name="F:VirtoCommerce.SubscriptionModule.Core.Model.SubscriptionStatus.PastDue">
+            <summary>
+            When payment to renew the subscription fails
+            </summary>
+        </member>
+        <member name="F:VirtoCommerce.SubscriptionModule.Core.Model.SubscriptionStatus.Cancelled">
+            <summary>
+            the subscription ends up with a status of either canceled 
+            </summary>
+        </member>
+        <member name="F:VirtoCommerce.SubscriptionModule.Core.Model.SubscriptionStatus.Unpaid">
+            <summary>
+            When subscription have some unpaid orders
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder">
+            <summary>
+            Responsible for programmatically working with subscription
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder.TakeSubscription(VirtoCommerce.SubscriptionModule.Core.Model.Subscription)">
+            <summary>
+            Capture given subscription for future manipulation
+            </summary>
+            <param name="subscription"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder.ActualizeAsync">
+            <summary>
+            Actualize captured subscription (Statuses, Balance etc)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder.TryCreateSubscriptionFromOrderAsync(VirtoCommerce.OrdersModule.Core.Model.CustomerOrder)">
+            <summary>
+            Create new subscription for given customer order with contains items selling by payment plan 
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder.TryToCreateRecurrentOrderAsync(System.Boolean)">
+            <summary>
+            Attempt to create new recurrent order with subscription recurring settings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.SubscriptionModule.Core.Services.ISubscriptionBuilder.CancelSubscription(System.String)">
+            <summary>
+            Cancel subscription
+            </summary>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

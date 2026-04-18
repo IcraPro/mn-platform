@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.CatalogPublishingModule.Data</name>
+    </assembly>
+    <members>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Search.Indexing.ProductCompletenessChangesProvider">
+            <summary>
+            Extend product indexation process. Invalidate products as changed when products completeness value updated.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Search.Indexing.ProductCompletenessDocumentBuilder">
+            <summary>
+            Extend product indexation process and provides completeness_ChannelName field for indexed products
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Services.Evaluation.DefaultCompletenessEvaluator">
+            <summary>
+            Default completeness evaluator. Provides completeness for properties, descriptions, prices &amp; seo by default
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Services.Evaluation.DescriptionsCompletenessDetailEvaluator">
+            <summary>
+             Descriptions valiator. Check that products have description per item description type per channel language, which content is not null or empty.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Services.Evaluation.PricesCompletenessDetailEvaluator">
+            <summary>
+             Prices validator. Check that products have at least one price per channel currency, which list price is greater than zero.
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Services.Evaluation.PropertiesCompletenessDetailEvaluator">
+            <summary>
+            Properties validator. Check the following statements:
+            • One of property dictionary values (for dictionary properties);
+            • For value of type Short text &amp; Long text: is not null or empty;
+            • For value of type Number: is greater than or equal to zero;
+            • Any value successfully parsed as Date time or Boolean is valid;
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.CatalogPublishingModule.Data.Services.Evaluation.SeoCompletenessDetailEvaluator">
+            <summary>
+            Properties validator. Check that products have at least one SEO per channel language,
+            URL keyword of which is not null or empty and does not contain invalid symbols (where invalid symbols is $+;=%{}[]|\/@ ~#!^*&amp;?:'&lt;&gt;,)
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -112,10 +112,6 @@ namespace VirtoCommerce.Platform.Data.Repositories
             // Applies configuration from all <see cref="IEntityTypeConfiguration{TEntity}" in VirtoCommerce.Platform.Data.XXX project. /> 
             switch (Database.ProviderName)
             {
-                case "Pomelo.EntityFrameworkCore.MySql":
-                    const string mySqlAssemblyName = "VirtoCommerce.Platform.Data.MySql";
-                    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load("VirtoCommerce.Platform.Data.MySql"), type => IsPlatformDBContextEntity(type, mySqlAssemblyName));
-                    break;
                 case "Npgsql.EntityFrameworkCore.PostgreSQL":
                     const string postgreSqlAssemblyName = "VirtoCommerce.Platform.Data.PostgreSql";
                     modelBuilder.ApplyConfigurationsFromAssembly(Assembly.Load(postgreSqlAssemblyName), type => IsPlatformDBContextEntity(type, postgreSqlAssemblyName));

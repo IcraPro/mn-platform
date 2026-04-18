@@ -1,0 +1,490 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "VirtoCommerce.ElasticSearch8.Web/3.1003.0": {
+        "dependencies": {
+          "VirtoCommerce.ElasticSearch8.Core": "3.1003.0",
+          "VirtoCommerce.ElasticSearch8.Data": "3.1003.0"
+        },
+        "runtime": {
+          "VirtoCommerce.ElasticSearch8.Web.dll": {}
+        }
+      },
+      "Elastic.Clients.Elasticsearch/8.19.14": {
+        "dependencies": {
+          "Elastic.Transport": "0.10.3"
+        },
+        "runtime": {
+          "lib/net10.0/Elastic.Clients.Elasticsearch.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.19.14.0"
+          }
+        }
+      },
+      "Elastic.Transport/0.10.3": {
+        "runtime": {
+          "lib/net10.0/Elastic.Transport.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.10.3.0"
+          }
+        }
+      },
+      "EntityFrameworkCore.Triggers/1.2.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/EntityFrameworkCore.Triggers.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "FluentValidation/12.1.1": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.1.1.0"
+          }
+        }
+      },
+      "Humanizer.Core/3.0.1": {
+        "runtime": {
+          "lib/net10.0/Humanizer.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.1.28244"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore/10.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.1"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "10.0.1.0",
+            "fileVersion": "10.0.125.57005"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.1": {
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "10.0.1.0",
+            "fileVersion": "10.0.125.57005"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/10.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.1"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "10.0.1.0",
+            "fileVersion": "10.0.125.57005"
+          }
+        }
+      },
+      "Nager.Country/4.3.5": {
+        "runtime": {
+          "lib/net10.0/Nager.Country.dll": {
+            "assemblyVersion": "4.3.5.0",
+            "fileVersion": "4.3.5.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.4": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.4.30916"
+          }
+        }
+      },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
+      "Polly/8.6.5": {
+        "dependencies": {
+          "Polly.Core": "8.6.5"
+        },
+        "runtime": {
+          "lib/net6.0/Polly.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.5.5194"
+          }
+        }
+      },
+      "Polly.Core/8.6.5": {
+        "runtime": {
+          "lib/net8.0/Polly.Core.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.5.5194"
+          }
+        }
+      },
+      "Serialize.Linq/4.0.167": {
+        "runtime": {
+          "lib/net9.0/Serialize.Linq.dll": {
+            "assemblyVersion": "4.0.167.0",
+            "fileVersion": "4.0.167.0"
+          }
+        }
+      },
+      "Serilog/4.3.0": {
+        "runtime": {
+          "lib/net9.0/Serilog.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "StackExchange.Redis/2.10.1": {
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.8",
+          "System.IO.Hashing": "9.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.10.1.65101"
+          }
+        }
+      },
+      "System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "22.1.0",
+          "TestableIO.System.IO.Abstractions.Wrappers": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "System.IO.Hashing/9.0.10": {
+        "runtime": {
+          "lib/net9.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "9.0.0.10",
+            "fileVersion": "9.0.1025.47515"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+        "dependencies": {
+          "Testably.Abstractions.FileSystem.Interface": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "assemblyVersion": "22.1.0.0",
+            "fileVersion": "22.1.0.0"
+          }
+        }
+      },
+      "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+        "runtime": {
+          "lib/net10.0/Testably.Abstractions.FileSystem.Interface.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Caching/3.1002.0": {
+        "dependencies": {
+          "Polly": "8.6.5",
+          "StackExchange.Redis": "2.10.1",
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Caching.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Core/3.1002.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4",
+          "Serilog": "4.3.0",
+          "System.IO.Abstractions": "22.1.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Core.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.Platform.Data/3.1002.0": {
+        "dependencies": {
+          "EntityFrameworkCore.Triggers": "1.2.3",
+          "FluentValidation": "12.1.1",
+          "Humanizer.Core": "3.0.1",
+          "Microsoft.EntityFrameworkCore": "10.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.1",
+          "Nager.Country": "4.3.5",
+          "Serialize.Linq": "4.0.167",
+          "VirtoCommerce.Platform.Caching": "3.1002.0",
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.Platform.Data.dll": {
+            "assemblyVersion": "3.1002.0.0",
+            "fileVersion": "3.1002.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.SearchModule.Core/3.1000.0": {
+        "dependencies": {
+          "VirtoCommerce.Platform.Core": "3.1002.0"
+        },
+        "runtime": {
+          "lib/net10.0/VirtoCommerce.SearchModule.Core.dll": {
+            "assemblyVersion": "3.1000.0.0",
+            "fileVersion": "3.1000.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.ElasticSearch8.Core/3.1003.0": {
+        "dependencies": {
+          "Elastic.Clients.Elasticsearch": "8.19.14",
+          "VirtoCommerce.Platform.Core": "3.1002.0",
+          "VirtoCommerce.SearchModule.Core": "3.1000.0"
+        },
+        "runtime": {
+          "VirtoCommerce.ElasticSearch8.Core.dll": {
+            "assemblyVersion": "3.1003.0.0",
+            "fileVersion": "3.1003.0.0"
+          }
+        }
+      },
+      "VirtoCommerce.ElasticSearch8.Data/3.1003.0": {
+        "dependencies": {
+          "VirtoCommerce.ElasticSearch8.Core": "3.1003.0",
+          "VirtoCommerce.Platform.Data": "3.1002.0"
+        },
+        "runtime": {
+          "VirtoCommerce.ElasticSearch8.Data.dll": {
+            "assemblyVersion": "3.1003.0.0",
+            "fileVersion": "3.1003.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VirtoCommerce.ElasticSearch8.Web/3.1003.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Elastic.Clients.Elasticsearch/8.19.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2t+qzFU0zh4KquwWpc1KbQ3rIn1Jta9MExDgct8P9PJc59REUbX5kQZowTxQds+jOyi3lVK66dObD13UO74gbg==",
+      "path": "elastic.clients.elasticsearch/8.19.14",
+      "hashPath": "elastic.clients.elasticsearch.8.19.14.nupkg.sha512"
+    },
+    "Elastic.Transport/0.10.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DkHBUyfj1xpbDYfDHNWqCQHeAmZbEPrBqKA3dPMpfHQjzicG8269p+aXh3VrnEojfk4YVoj6DuI1SiwFdHmIzw==",
+      "path": "elastic.transport/0.10.3",
+      "hashPath": "elastic.transport.0.10.3.nupkg.sha512"
+    },
+    "EntityFrameworkCore.Triggers/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mnO/imDMIM6tIYrdIqbOqzj8KFYdY3n/kBOSQAT4OXvhTMDbO6nAf5yHn8W8PeM3JOmyKednA7S7/6p+XG4+3A==",
+      "path": "entityframeworkcore.triggers/1.2.3",
+      "hashPath": "entityframeworkcore.triggers.1.2.3.nupkg.sha512"
+    },
+    "FluentValidation/12.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw==",
+      "path": "fluentvalidation/12.1.1",
+      "hashPath": "fluentvalidation.12.1.1.nupkg.sha512"
+    },
+    "Humanizer.Core/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-scB3+KcxNmEjZK5V8rKCW2gIiL8m8KH91w14FuuExyhi9xTyAJ+jr+DDxGdy12mHmioe2uvjxTfMgM7WmSUFlw==",
+      "path": "humanizer.core/3.0.1",
+      "hashPath": "humanizer.core.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QsXvZ8G7Dl7x09rlq0b2dye7QqfReMq8yGdl7Mffi3Ip+aTa+JUMixBZ4lhCs9Ygjz2e9tiUACstxI+ADkwaFg==",
+      "path": "microsoft.entityframeworkcore/10.0.1",
+      "hashPath": "microsoft.entityframeworkcore.10.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sp6Uq8Oc3RVGtmxLS3ZgzVeFHrpLNymsMudoeqRmB9pRTWgvq2S903sF5OnaaZmh4Bz6kpq7FwofE+DOhKJYvg==",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.1",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8/5kYGwKN6wtc89QqcPTOZDAJSMX8MzKCf5OmYjIfAHWTfsUEpGKYrdtfNk4X36rQ0BiU3n57Y4rbtnerzJN0Q==",
+      "path": "microsoft.entityframeworkcore.relational/10.0.1",
+      "hashPath": "microsoft.entityframeworkcore.relational.10.0.1.nupkg.sha512"
+    },
+    "Nager.Country/4.3.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hxKQZJS1dKvr2huJRUBmsnHM1wAL89K6uOHR+ONkXVvxFh7O7YQuVja+HN0fXpvcfR4Jw4bvpiD5Pb7EEunkkA==",
+      "path": "nager.country/4.3.5",
+      "hashPath": "nager.country.4.3.5.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
+    },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
+    "Polly/8.6.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VqtW2ZE/ALvQMAH1cQY3qZ2cF2OXa3oe/HKMdOv6Q02HCoEW0rsFNfcBONXlHBe1TnjWW1vdRxBEkPeq0/2FHA==",
+      "path": "polly/8.6.5",
+      "hashPath": "polly.8.6.5.nupkg.sha512"
+    },
+    "Polly.Core/8.6.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t+sUVrIwvo7UmsgHGgOG9F0GDZSRIm47u2ylH17Gvcv1q5hNEwgD5GoBlFyc0kh/pebmPyrAgvGsR/65ZBaXlg==",
+      "path": "polly.core/8.6.5",
+      "hashPath": "polly.core.8.6.5.nupkg.sha512"
+    },
+    "Serialize.Linq/4.0.167": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lKB6AlpsYsbhclymEWORtv0dQPJNvL1OCVI2k/XGBIsI30phEDYv9MqlmGTIvPtXYqhOFRq6EKXz//cLUWXp1g==",
+      "path": "serialize.linq/4.0.167",
+      "hashPath": "serialize.linq.4.0.167.nupkg.sha512"
+    },
+    "Serilog/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ==",
+      "path": "serilog/4.3.0",
+      "hashPath": "serilog.4.3.0.nupkg.sha512"
+    },
+    "StackExchange.Redis/2.10.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-se08WZvD42H3bV4XBW07pupTiE2/72qStKyi/lRqqcijksFWfRtwLTuhFtZ4OX19f4+we/2qruFZBXYJBFc8PQ==",
+      "path": "stackexchange.redis/2.10.1",
+      "hashPath": "stackexchange.redis.2.10.1.nupkg.sha512"
+    },
+    "System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QDwmFWQQ84FIRFkOGLwdhJWgOP2Qm+d73edWavzVvYrQ029jjB7CdT24L/F9QvGThN7uYZW6vLLSpvaUBC2Cw==",
+      "path": "system.io.abstractions/22.1.0",
+      "hashPath": "system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "System.IO.Hashing/9.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9gv5z71xaWWmcGEs4bXdreIhKp2kYLK2fvPK5gQkgnWMYvZ8ieaxKofDjxL3scZiEYfi/yW2nJTiKV2awcWEdA==",
+      "path": "system.io.hashing/9.0.10",
+      "hashPath": "system.io.hashing.9.0.10.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YQ/IuNE8gP/+yNwQjdqd6DKhB9ADGjosxuY2IMXcQ3729iXa9QRsPlmIBpk73L0s9E2b+MTYhAR/2Spk8REjvA==",
+      "path": "testableio.system.io.abstractions/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.22.1.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/22.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IsW3jQqIiTN4GwdWFx+dzgRL5XR75UDTFVGuuIackPf2d7eH0KKyrx4wuIoASa1XnS9zhgLP39FKwJq6nbbx1w==",
+      "path": "testableio.system.io.abstractions.wrappers/22.1.0",
+      "hashPath": "testableio.system.io.abstractions.wrappers.22.1.0.nupkg.sha512"
+    },
+    "Testably.Abstractions.FileSystem.Interface/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tZOXFLGjkh8TxgMgKeEcM2HAlz9DwndGl6TFLo6ISHcszFX3FkuPMrtVbmqVjhooWNXrgJ/a9cH9ym5MZL1LAg==",
+      "path": "testably.abstractions.filesystem.interface/10.0.0",
+      "hashPath": "testably.abstractions.filesystem.interface.10.0.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Caching/3.1002.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HcrsxoK9rdVYXxRraAlawGRYbZsX3c5HyCAAx8KKsmVqscGZVf7oPXe6QGOgCd6SJmnqlcQAzktyIlCuykNgUw==",
+      "path": "virtocommerce.platform.caching/3.1002.0",
+      "hashPath": "virtocommerce.platform.caching.3.1002.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Core/3.1002.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NNVM+Mf+oWRnovLsegLDOSNoxNz5TFnHH+fsVryS45/9pFupin+td5DoTOeOUlfPsOkVmCmu9oCpETbuQlQ/hA==",
+      "path": "virtocommerce.platform.core/3.1002.0",
+      "hashPath": "virtocommerce.platform.core.3.1002.0.nupkg.sha512"
+    },
+    "VirtoCommerce.Platform.Data/3.1002.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1NTmNCGKQN9u6nsO5q+ByJ2ZWlJ8oRFKLxG+dwZkIJ906E3j/MuSY5khf6SEXjradFYi7s7k6meaFcODRLYxPg==",
+      "path": "virtocommerce.platform.data/3.1002.0",
+      "hashPath": "virtocommerce.platform.data.3.1002.0.nupkg.sha512"
+    },
+    "VirtoCommerce.SearchModule.Core/3.1000.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7V/N7/EIVzbl65wqfxlrpwZPGPXZkvzkUs0aruldL06doEVT6QuEqIchDao359K5FWm6qo3smwJXNqm4Wixbnw==",
+      "path": "virtocommerce.searchmodule.core/3.1000.0",
+      "hashPath": "virtocommerce.searchmodule.core.3.1000.0.nupkg.sha512"
+    },
+    "VirtoCommerce.ElasticSearch8.Core/3.1003.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VirtoCommerce.ElasticSearch8.Data/3.1003.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

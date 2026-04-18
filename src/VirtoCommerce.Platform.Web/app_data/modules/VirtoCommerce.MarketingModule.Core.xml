@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VirtoCommerce.MarketingModule.Core</name>
+    </assembly>
+    <members>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentFolder.Path">
+            <summary>
+            all parent folders names concatenated (Root\Child\Child2)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentFolder.Outline">
+            <summary>
+            all parent folders ids concatenated (1;21;344)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentItem.Outline">
+            <summary>
+            all parent folders ids concatenated (1;21;344)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentItem.Path">
+            <summary>
+            all parent folders names concatenated (Root\Child\Child2)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentListEntry.ObjectType">
+            <summary>
+            Gets or sets the type. E.g. "folder", "content-item", "content-place"
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentListEntry.ImageUrl">
+            <summary>
+            Gets or sets the image URL.
+            </summary>
+            <value>
+            The image URL.
+            </value>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentListEntry.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentPlace.Outline">
+            <summary>
+            all parent folders ids concatenated (1;21;344)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.DynamicContentPlace.Path">
+            <summary>
+            all parent folders names concatenated (Root\Child\Child2)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionAtNumItemsInCart.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).GetCartItemsQuantity(ExcludingCategoryIds, ExcludingProductIds) > NumItem
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionAtNumItemsInCategoryAreInCart.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).GetCartItemsOfCategoryQuantity(CategoryId, ExcludingCategoryIds, ExcludingProductIds) > NumItem
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionAtNumItemsOfEntryAreInCart.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).GetCartItemsOfProductQuantity(ProductId, ExcludingCategoryIds, ExcludingProductIds) > NumItem
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionCartSubtotalLeast.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).GetCartTotalWithExcludings(ExcludingCategoryIds, ExcludingProductIds) > SubTotal
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionCategoryIs.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).IsItemInCategory(CategoryId, ExcludingCategoryIds, ExcludingProductIds)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionCodeContains.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).IsItemCodeContains(Keyword)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionCurrencyIs.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).Currency == Currency
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionEntryIs.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).IsItemInProduct(ProductId)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionHasNoSalePrice.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).HasNoSalePrice()
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionInStockQuantity.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).IsItemsInStockQuantity(Exactly, Quantity, QuantitySecond)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionIsEveryone.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            ((PromotionEvaluationContext)x).IsEveryone
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.Conditions.ConditionIsFirstTimeBuyer.IsSatisfiedBy(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+             ((PromotionEvaluationContext)x).IsFirstTimeBuyer
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Coupon.MaxUsesNumber">
+            <summary>
+            Restriction of total coupon usages
+            0 infinitive
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Coupon.MaxUsesPerUser">
+            <summary>
+            Maximum number of uses per registered user
+            0 infinitive
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Coupon.Code">
+            <summary>
+            coupon code
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Coupon.TotalUsesCount">
+            <summary>
+            Total number of uses 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Coupon.MemberId">
+            <summary>
+            Register coupon for a specific customer or organization
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.Name">
+            <summary>
+            Promotion name
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.Type">
+            <summary>
+            Required for UI. TODO: remove later
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.Priority">
+            <summary>
+            Represents a promotion priority, for combination policies when it is necessary to select a promotion with a higher priority
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.IsExclusive">
+            <summary>
+            If a promotion with this setting is applied, no other promotions can be applied to the order.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.MaxUsageCount">
+            <summary>
+            Maximum redemptions for this promotion
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.MaxUsageOnOrder">
+            <summary>
+            Maximum redemptions on a single order
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.Promotion.MaxPersonalUsageCount">
+            <summary>
+            Maximum redemptions by a single customer
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionConditionAndRewardTreePrototype">
+            <summary>
+            Represents the prototype for promotion tree <see cref="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionConditionAndRewardTree"/> contains the list of available conditions for building a tree in designer
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.CustomerId">
+            <summary>
+            Contains User Id.
+            This property will be deleted after update to .NET8. Use UserId property instead.
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.IsFirstTimeBuyer">
+            <summary>
+            Has user made any orders
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.ShipmentMethodCode">
+            <summary>
+            Current shipment method
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.PaymentMethodCode">
+            <summary>
+            Current payment method
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.Coupon">
+            <summary>
+            Entered coupon
+            </summary>
+        </member>
+        <member name="F:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext._coupons">
+            <summary>
+            Entered multiple coupons
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.CartPromoEntries">
+            <summary>
+            List of product promo in cart
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.PromoEntries">
+            <summary>
+            List of products for promo evaluation
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionEvaluationContext.PromoEntry">
+            <summary>
+            Single catalog product promo entry 
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.Amount">
+            <summary>
+            Reward amount
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.MaxLimit">
+            <summary>
+            The max reward amount limit (Not to exceed $S)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.Quantity">
+            <summary>
+            The max  quantity limit (No more than Q items)
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.GetRewardAmount(System.Decimal,System.Int32)">
+            <summary>
+             Get per item reward amount for given items quantity and price
+            </summary>
+            <param name="price">Price per item</param>
+            <param name="quantity">Total items quantity</param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.GetAmountPerItem(System.Decimal,System.Int32,VirtoCommerce.CoreModule.Core.Currency.Currency)">
+            <summary>
+            Get per item reward amount for given items quantity and price
+            </summary>
+            <param name="price">Price per item</param>
+            <param name="quantity">Total items quantity</param>
+            <param name="currency"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Model.Promotions.AmountBasedReward.GetTotalAmount(System.Decimal,System.Int32,VirtoCommerce.CoreModule.Core.Currency.Currency)">
+            <summary>
+             Get total reward amount for given items quantity and price
+            </summary>
+            <param name="price">Price per item</param>
+            <param name="quantity">Total items quantity</param>
+            <param name="currency"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.GiftReward">
+            <summary>
+            Gift
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.CatalogItemAmountReward.ProductId">
+            <summary>
+            Target reward product
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.CatalogItemAmountReward.ConditionalProductId">
+            <summary>
+            Conditional product
+            For N items of entry ProductId  in every Y items of entry ConditionalProductId get %X off
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.PaymentReward">
+            <summary>
+            Payment reward
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.IsValid">
+            <summary>
+            Flag for applicability
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.Description">
+            <summary>
+            Promo information. (user instructions, current promo description)
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.CouponAmount">
+            <summary>
+            Coupon amount
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.Coupon">
+            <summary>
+            Coupon
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.CouponMinOrderAmount">
+            <summary>
+            Minimal amount in order to apply a coupon
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Model.Promotions.PromotionReward.RewardType">
+            <summary>
+            Promotion reward type. Should be here for proper web model PromotionReward.RewardType filling
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.ShipmentReward">
+            <summary>
+            Shipment reward
+            </summary>
+        </member>
+        <member name="T:VirtoCommerce.MarketingModule.Core.Model.Promotions.SpecialOfferReward">
+            <summary>
+            Special offer reward
+            </summary>
+        </member>
+        <member name="P:VirtoCommerce.MarketingModule.Core.Promotions.DynamicPromotion.IsAllowCombiningWithSelf">
+            <summary>
+            If this flag is set to true, it allows this promotion to combine with itself.
+            Special for case when need to return same promotion rewards for multiple coupons
+            </summary>
+        </member>
+        <member name="M:VirtoCommerce.MarketingModule.Core.Services.IMarketingPromoEvaluator.EvaluatePromotionAsync(VirtoCommerce.CoreModule.Core.Common.IEvaluationContext)">
+            <summary>
+            Evaluate promotion for specific context
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
