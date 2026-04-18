@@ -676,7 +676,7 @@ services.AddDbContext<PlatformDbContext>((provider, options) =>
                 // This ensures only one active EF-migration ran simultaneously to avoid DB-related side effects.
 
                 // Apply platform migrations
-                app.UsePlatformMigrations(Configuration);
+                app.UsePlatformMigrations();
 
                 // Run all registered IDataSeeder implementations (idempotent, order-aware)
                 app.UsePlatformSeedData();

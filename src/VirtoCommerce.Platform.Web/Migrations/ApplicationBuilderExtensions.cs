@@ -1,11 +1,8 @@
 using System.Threading;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Seeding;
-using VirtoCommerce.Platform.Data.Extensions;
 using VirtoCommerce.Platform.Data.Repositories;
 using VirtoCommerce.Platform.Security.Repositories;
 
@@ -13,22 +10,17 @@ namespace VirtoCommerce.Platform.Web.Migrations
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UsePlatformMigrations(this IApplicationBuilder appBuilder, IConfiguration configuration)
+        public static IApplicationBuilder UsePlatformMigrations(this IApplicationBuilder appBuilder)
         {
-            var databaseProvider = configuration.GetValue("DatabaseProvider", "SqlServer");
+            using var serviceScope = appBuilder.ApplicationServices.CreateScope();
 
-            using (var serviceScope = appBuilder.ApplicationServices.CreateScope())
-            {
-                var platformDbContext = serviceScope.ServiceProvider.GetRequiredService<PlatformDbContext>();
-                if (databaseProvider == "SqlServer")
-                    platformDbContext.Database.MigrateIfNotApplied(MigrationName.GetUpdateV2MigrationName("Platform"));
-                platformDbContext.Database.Migrate();
+            serviceScope.ServiceProvider
+                .GetRequiredService<PlatformDbContext>()
+                .Database.Migrate();
 
-                var securityDbContext = serviceScope.ServiceProvider.GetRequiredService<SecurityDbContext>();
-                if (databaseProvider == "SqlServer")
-                    securityDbContext.Database.MigrateIfNotApplied(MigrationName.GetUpdateV2MigrationName("Security"));
-                securityDbContext.Database.Migrate();
-            }
+            serviceScope.ServiceProvider
+                .GetRequiredService<SecurityDbContext>()
+                .Database.Migrate();
 
             return appBuilder;
         }
