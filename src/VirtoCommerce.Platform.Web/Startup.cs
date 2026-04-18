@@ -1,0 +1,790 @@
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using OpenIddict.Abstractions;
+using OpenIddict.Validation.AspNetCore;
+using Serilog;
+using VirtoCommerce.Platform.Core;
+using VirtoCommerce.Platform.Core.Common;
+using VirtoCommerce.Platform.Core.DeveloperTools;
+using VirtoCommerce.Platform.Core.DynamicProperties;
+using VirtoCommerce.Platform.Core.JsonConverters;
+using VirtoCommerce.Platform.Core.Localizations;
+using VirtoCommerce.Platform.Core.Logger;
+using VirtoCommerce.Platform.Core.Modularity;
+using VirtoCommerce.Platform.Core.Security;
+using VirtoCommerce.Platform.Core.Security.ExternalSignIn;
+using VirtoCommerce.Platform.Core.Security.Search;
+using VirtoCommerce.Platform.Core.Settings;
+using VirtoCommerce.Platform.Data.DeveloperTools;
+using VirtoCommerce.Platform.Data.Extensions;
+using VirtoCommerce.Platform.Data.MySql;
+using VirtoCommerce.Platform.Data.MySql.Extensions;
+using VirtoCommerce.Platform.Data.MySql.HealthCheck;
+using VirtoCommerce.Platform.Data.PostgreSql;
+using VirtoCommerce.Platform.Data.PostgreSql.Extensions;
+using VirtoCommerce.Platform.Data.PostgreSql.HealthCheck;
+using VirtoCommerce.Platform.Data.Repositories;
+using VirtoCommerce.Platform.Data.SqlServer;
+using VirtoCommerce.Platform.Data.SqlServer.Extensions;
+using VirtoCommerce.Platform.Data.SqlServer.HealthCheck;
+using VirtoCommerce.Platform.DistributedLock;
+using VirtoCommerce.Platform.Hangfire.Extensions;
+using VirtoCommerce.Platform.Modules;
+using VirtoCommerce.Platform.Modules.Local;
+using VirtoCommerce.Platform.Security;
+using VirtoCommerce.Platform.Security.Authorization;
+using VirtoCommerce.Platform.Security.Model.OpenIddict;
+using VirtoCommerce.Platform.Security.OpenIddict;
+using VirtoCommerce.Platform.Security.Repositories;
+using VirtoCommerce.Platform.Security.Services;
+using VirtoCommerce.Platform.Web.Extensions;
+using VirtoCommerce.Platform.Web.Infrastructure;
+using VirtoCommerce.Platform.Web.Infrastructure.HealthCheck;
+using VirtoCommerce.Platform.Web.Json;
+using VirtoCommerce.Platform.Web.Licensing;
+using VirtoCommerce.Platform.Web.Middleware;
+using VirtoCommerce.Platform.Web.Migrations;
+using VirtoCommerce.Platform.Web.PushNotifications;
+using VirtoCommerce.Platform.Web.Redis;
+using VirtoCommerce.Platform.Web.Security;
+using VirtoCommerce.Platform.Web.Security.Authentication;
+using VirtoCommerce.Platform.Web.Security.Authorization;
+using VirtoCommerce.Platform.Web.Swagger;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
+using MsTokens = Microsoft.IdentityModel.Tokens;
+
+namespace VirtoCommerce.Platform.Web
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration, IWebHostEnvironment hostingEnvironment)
+        {
+            Configuration = configuration;
+            WebHostEnvironment = hostingEnvironment;
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        }
+
+        public IConfiguration Configuration { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
+
+        public ServerCertificate ServerCertificate { get; set; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Bootstrap logger was created in Program.Main() before module loading.
+            Log.ForContext<Startup>().Information("Configuring services");
+
+            // Let IPlatformStartup implementations register application-level services
+            ModuleBootstrapper.Instance.RunConfigureServices(services, Configuration);
+
+            var databaseProvider = Configuration.GetValue("DatabaseProvider", "SqlServer");
+
+            // Optional Modules Dependency Resolving
+            services.Add(ServiceDescriptor.Singleton(typeof(IOptionalDependency<>), typeof(OptionalDependencyManager<>)));
+
+            services.AddCustomSecurityHeaders();
+            services.AddForwardedHeaders();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // This custom provider allows able to use just [Authorize] instead of having to define [Authorize(AuthenticationSchemes = "Bearer")] above every API controller
+            // without this Bearer authorization will not work
+            services.AddSingleton<IAuthenticationSchemeProvider, CustomAuthenticationSchemeProvider>();
+
+            services.AddRedis(Configuration);
+
+            services.AddSignalR().AddPushNotifications(Configuration);
+
+            services.AddOptions<PlatformOptions>().Bind(Configuration.GetSection("VirtoCommerce")).ValidateDataAnnotations();
+            services.AddOptions<LocalStorageModuleCatalogOptions>().Bind(Configuration.GetSection("VirtoCommerce"))
+                    .PostConfigure(options =>
+                    {
+                        options.DiscoveryPath = Path.GetFullPath(options.DiscoveryPath);
+                        options.ProbingPath = Path.GetFullPath(options.ProbingPath);
+                    })
+                    .ValidateDataAnnotations();
+
+#pragma warning disable VC0014 // Type or member is obsolete
+            services.AddOptions<ModuleSequenceBoostOptions>().Bind(Configuration.GetSection("VirtoCommerce"));
+#pragma warning restore VC0014 // Type or member is obsolete
+
+            services.AddOptions<DistributedLockOptions>().Bind(Configuration.GetSection("DistributedLock"));
+            services.AddOptions<TranslationOptions>().Configure(options =>
+            {
+                options.PlatformTranslationFolderPath = WebHostEnvironment.MapPath(options.PlatformTranslationFolderPath);
+            });
+            services.AddOptions<SecurityHeadersOptions>().Bind(Configuration.GetSection("SecurityHeaders")).ValidateDataAnnotations();
+
+            services.AddSingleton<IFileCopyPolicy, FileCopyPolicy>();
+            services.AddSingleton<IFileMetadataProvider, FileMetadataProvider>();
+
+            services.AddDbContext<PlatformDbContext>((provider, options) =>
+            {
+                var connectionString = Configuration.GetConnectionString("VirtoCommerce");
+
+                switch (databaseProvider)
+                {
+                    case "MySql":
+                        options.UseMySqlDatabase(connectionString, typeof(MySqlDataAssemblyMarker), Configuration);
+                        break;
+                    case "PostgreSql":
+                        options.UsePostgreSqlDatabase(connectionString, typeof(PostgreSqlDataAssemblyMarker), Configuration);
+                        break;
+                    default:
+                        options.UseSqlServerDatabase(connectionString, typeof(SqlServerDataAssemblyMarker), Configuration);
+                        break;
+                }
+            });
+
+            services.AddPlatformServices(Configuration);
+
+            services.AddSingleton<LicenseProvider>();
+
+            var platformOptions = Configuration.GetSection("VirtoCommerce").Get<PlatformOptions>();
+
+            var mvcBuilder = services.AddMvc(mvcOptions =>
+            {
+                //Disable 204 response for null result. https://github.com/aspnet/AspNetCore/issues/8847
+                var noContentFormatter = mvcOptions.OutputFormatters.OfType<HttpNoContentOutputFormatter>().FirstOrDefault();
+                if (noContentFormatter != null)
+                {
+                    noContentFormatter.TreatNullValueAsNoContent = false;
+                }
+            })
+            .AddNewtonsoftJson(options =>
+            {
+                //Next line needs to represent custom derived types in the resulting swagger doc definitions. Because default SwaggerProvider used global JSON serialization settings
+                //we should register this converter globally.
+                options.SerializerSettings.ContractResolver = new PolymorphJsonContractResolver();
+                //Next line allow to use polymorphic types as parameters in API controller methods
+                options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                options.SerializerSettings.Converters.Add(new ModuleIdentityJsonConverter());
+                options.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                options.SerializerSettings.Formatting = Formatting.None;
+            })
+            .AddOutputJsonSerializerSettings((settings, jsonOptions) =>
+            {
+                settings.CopyFrom(jsonOptions.SerializerSettings);
+
+                if (platformOptions.IncludeOutputNullValues)
+                {
+                    settings.NullValueHandling = NullValueHandling.Include;
+                }
+            });
+
+            services.AddSingleton(serviceProvider =>
+            {
+                var options = serviceProvider.GetService<IOptions<MvcNewtonsoftJsonOptions>>();
+                return JsonSerializer.Create(options.Value.SerializerSettings);
+            });
+
+            services.AddDbContext<SecurityDbContext>(options =>
+            {
+                var connectionString = Configuration["Auth:ConnectionString"] ??
+                    Configuration.GetConnectionString("VirtoCommerce");
+
+                switch (databaseProvider)
+                {
+                    case "MySql":
+                        options.UseMySqlDatabase(connectionString, typeof(MySqlDataAssemblyMarker), Configuration);
+                        break;
+                    case "PostgreSql":
+                        options.UsePostgreSqlDatabase(connectionString, typeof(PostgreSqlDataAssemblyMarker), Configuration);
+                        break;
+                    default:
+                        options.UseSqlServerDatabase(connectionString, typeof(SqlServerDataAssemblyMarker), Configuration);
+                        break;
+                }
+
+                // Register the entity sets needed by OpenIddict.
+                // Note: use the generic overload if you need
+                // to replace the default OpenIddict entities.
+                options.UseOpenIddict<VirtoOpenIddictEntityFrameworkCoreApplication,
+                                      VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                                      VirtoOpenIddictEntityFrameworkCoreScope,
+                                      VirtoOpenIddictEntityFrameworkCoreToken,
+                                      string>();
+            });
+
+            if (platformOptions.UseResponseCompression)
+            {
+                services.AddResponseCompression(options =>
+                {
+                    options.EnableForHttps = true;
+                    options.Providers.Add<BrotliCompressionProvider>();
+                    options.Providers.Add<GzipCompressionProvider>();
+                });
+            }
+
+            // Enable synchronous IO if using Kestrel:
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
+            // Enable synchronous IO if using IIS:
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            var authBuilder = services.AddAuthentication(OpenIddictValidationAspNetCoreDefaults.AuthenticationScheme)
+                //Add the second ApiKey auth schema to handle api_key in query string
+                .AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationOptions.DefaultScheme, options => { })
+                //Add the third BasicAuth auth schema
+                .AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>(BasicAuthenticationOptions.DefaultScheme, options => { })
+                .AddCookie();
+
+            services.AddSecurityServices(options =>
+            {
+            });
+
+            services.AddIdentity<ApplicationUser, Role>(options => options.Stores.MaxLengthForKeys = 128)
+                .AddEntityFrameworkStores<SecurityDbContext>()
+                .AddDefaultTokenProviders()
+                .AddUserValidator<CustomUserValidator>();
+
+            // Configure Identity to use the same JWT claims as OpenIddict instead
+            // of the legacy WS-Federation claims it uses by default (ClaimTypes),
+            // which saves you from doing the mapping in your authorization controller.
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.ClaimsIdentity.UserNameClaimType = OpenIddictConstants.Claims.Name;
+                options.ClaimsIdentity.UserIdClaimType = OpenIddictConstants.Claims.Subject;
+                options.ClaimsIdentity.RoleClaimType = OpenIddictConstants.Claims.Role;
+                options.ClaimsIdentity.EmailClaimType = OpenIddictConstants.Claims.Email;
+
+                ClaimsPrincipalExtensions.UserIdClaimTypes = [options.ClaimsIdentity.UserIdClaimType, ClaimTypes.NameIdentifier];
+                ClaimsPrincipalExtensions.UserNameClaimTypes = [options.ClaimsIdentity.UserNameClaimType];
+            });
+
+            services.ConfigureOptions<ConfigureSecurityStampValidatorOptions>();
+
+            // Load server certificate (from DB or file) and register it as a global singleton
+            // to allow the platform hosting under the cert
+            ICertificateLoader certificateLoader;
+            switch (databaseProvider)
+            {
+                case "MySql":
+                    certificateLoader = new MySqlCertificateLoader(Configuration);
+                    services.AddSingleton<ICertificateLoader>(s => { return certificateLoader; });
+                    break;
+                case "PostgreSql":
+                    certificateLoader = new PostgreSqlCertificateLoader(Configuration);
+                    services.AddSingleton<ICertificateLoader>(s => { return certificateLoader; });
+                    break;
+                default:
+                    certificateLoader = new SqlServerCertificateLoader(Configuration);
+                    services.AddSingleton<ICertificateLoader>(s => { return certificateLoader; });
+                    break;
+            }
+
+            Log.ForContext<Startup>().Information("Getting server certificate");
+            ServerCertificate = GetServerCertificate(certificateLoader);
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            JwtSecurityTokenHandler.DefaultOutboundClaimTypeMap.Clear();
+
+            authBuilder.AddJwtBearer(options =>
+            {
+                options.Authority = Configuration["Auth:Authority"];
+                options.Audience = Configuration["Auth:Audience"];
+
+                if (WebHostEnvironment.IsDevelopment())
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.IncludeErrorDetails = true;
+                }
+
+                MsTokens.X509SecurityKey publicKey = null;
+
+                var publicCert = ServerCertificate.X509Certificate;
+                publicKey = new MsTokens.X509SecurityKey(publicCert);
+                options.MapInboundClaims = false;
+                options.TokenValidationParameters = new MsTokens.TokenValidationParameters
+                {
+                    NameClaimType = OpenIddictConstants.Claims.Name,
+                    RoleClaimType = OpenIddictConstants.Claims.Role,
+                    ValidateIssuer = !string.IsNullOrEmpty(options.Authority),
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = publicKey
+                };
+            });
+
+            services.AddOptions<Core.Security.AuthorizationOptions>().Bind(Configuration.GetSection("Authorization")).ValidateDataAnnotations();
+            var authorizationOptions = Configuration.GetSection("Authorization").Get<Core.Security.AuthorizationOptions>();
+
+            // Register the OpenIddict services.
+            // Note: use the generic overload if you need
+            // to replace the default OpenIddict entities.
+            services.AddOpenIddict(openIddictBuilder =>
+            {
+                openIddictBuilder.AddCore(coreBuilder =>
+                {
+                    coreBuilder.UseEntityFrameworkCore(efBuilder =>
+                    {
+                        efBuilder.UseDbContext<SecurityDbContext>()
+                        .ReplaceDefaultEntities<VirtoOpenIddictEntityFrameworkCoreApplication,
+                                                VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                                                VirtoOpenIddictEntityFrameworkCoreScope,
+                                                VirtoOpenIddictEntityFrameworkCoreToken,
+                                                string>();
+                    });
+
+                });
+
+                openIddictBuilder.AddServer(serverBuilder =>
+                {
+                    // Register the ASP.NET Core MVC binder used by OpenIddict.
+                    // Note: if you don't call this method, you won't be able to
+                    // bind OpenIdConnectRequest or OpenIdConnectResponse parameters.
+                    serverBuilder.UseAspNetCore(aspNetBuilder =>
+                    {
+                        aspNetBuilder.EnableTokenEndpointPassthrough();
+                        aspNetBuilder.EnableAuthorizationEndpointPassthrough();
+                        aspNetBuilder.EnableEndSessionEndpointPassthrough();
+                        aspNetBuilder.EnableUserInfoEndpointPassthrough();
+                        aspNetBuilder.EnableStatusCodePagesIntegration();
+
+
+                        // During development or when you explicitly run the platform in production mode without https,
+                        // need to disable the HTTPS requirement.
+                        if (WebHostEnvironment.IsDevelopment() || platformOptions.AllowInsecureHttp || !Configuration.IsHttpsServerUrlSet())
+                        {
+                            aspNetBuilder.DisableTransportSecurityRequirement();
+                        }
+                    });
+
+                    // Enable the authorization, logout, token and userinfo endpoints.
+                    serverBuilder.SetTokenEndpointUris("/connect/token");
+                    serverBuilder.SetUserInfoEndpointUris("/connect/userinfo");
+                    serverBuilder.SetAuthorizationEndpointUris("/connect/authorize");
+                    serverBuilder.SetEndSessionEndpointUris("/connect/logout");
+
+                    // Note: the Mvc.Client sample only uses the code flow and the password flow, but you
+                    // can enable the other flows if you need to support implicit or client credentials.
+                    serverBuilder.AllowPasswordFlow();
+                    serverBuilder.AllowRefreshTokenFlow();
+                    serverBuilder.AllowClientCredentialsFlow();
+                    serverBuilder.AllowAuthorizationCodeFlow();
+                    serverBuilder.AllowCustomFlow(PlatformConstants.Security.GrantTypes.Impersonate);
+                    serverBuilder.AllowCustomFlow(PlatformConstants.Security.GrantTypes.ExternalSignIn);
+
+                    serverBuilder.SetRefreshTokenLifetime(authorizationOptions?.RefreshTokenLifeTime);
+                    serverBuilder.SetAccessTokenLifetime(authorizationOptions?.AccessTokenLifeTime);
+
+                    serverBuilder.AcceptAnonymousClients();
+
+                    // Configure Openiddict to issues new refresh token for each token refresh request.
+                    // Enabled by default, to disable use serverBuilder.DisableRollingRefreshTokens()
+
+                    // Make the "client_id" parameter mandatory when sending a token request.
+                    //options.RequireClientIdentification()
+
+                    serverBuilder.DisableScopeValidation();
+
+                    // Note: to use JWT access tokens instead of the default
+                    // encrypted format, the following lines are required:
+                    serverBuilder.DisableAccessTokenEncryption();
+
+                    X509Certificate2 privateKey;
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    {
+                        // https://github.com/dotnet/corefx/blob/release/2.2/Documentation/architecture/cross-platform-cryptography.md
+                        // macOS cannot load certificate private keys without a keychain object, which requires writing to disk.
+                        // Keychains are created automatically for PFX loading, and are deleted when no longer in use.
+                        // Since the X509KeyStorageFlags.EphemeralKeySet option means that the private key should not be written to disk, asserting that flag on macOS results in a PlatformNotSupportedException.
+                        privateKey = X509CertificateLoader.LoadPkcs12(ServerCertificate.PrivateKeyCertBytes, ServerCertificate.PrivateKeyCertPassword, X509KeyStorageFlags.MachineKeySet);
+                    }
+                    else
+                    {
+                        privateKey = X509CertificateLoader.LoadPkcs12(ServerCertificate.PrivateKeyCertBytes, ServerCertificate.PrivateKeyCertPassword, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.EphemeralKeySet);
+                    }
+
+                    serverBuilder.AddSigningCertificate(privateKey);
+                    serverBuilder.AddEncryptionCertificate(privateKey);
+                });
+
+                openIddictBuilder.AddValidation(validationBuilder =>
+                {
+                    // Import the configuration from the local OpenIddict server instance.
+                    validationBuilder.UseLocalServer();
+
+                    // Register the ASP.NET Core host.
+                    validationBuilder.UseAspNetCore();
+                });
+            });
+
+            // Override the default OpenIddict EF Core token store with our custom implementation
+            // that captures IpAddress and UserAgent during token creation.
+            // Must be registered AFTER AddOpenIddict() so it overrides the default store.
+            services.AddScoped<IOpenIddictTokenStore<VirtoOpenIddictEntityFrameworkCoreToken>, VirtoOpenIddictEntityFrameworkCoreTokenStore>();
+
+            services.AddSingleton<Func<IOpenIddictTokenManager>>(provider =>
+                () => provider.CreateScope().ServiceProvider.GetRequiredService<IOpenIddictTokenManager>());
+
+            services.AddTransient<IUserSessionsService, UserSessionsService>();
+            services.AddTransient<IUserSessionsSearchService, UserSessionsSearchService>();
+
+            services.Configure<IdentityOptions>(Configuration.GetSection("IdentityOptions"));
+            services.Configure<PasswordOptionsExtended>(Configuration.GetSection("IdentityOptions:Password"));
+            services.Configure<LockoutOptionsExtended>(Configuration.GetSection("IdentityOptions:Lockout"));
+            services.Configure<PasswordLoginOptions>(Configuration.GetSection("PasswordLogin"));
+            services.Configure<UserOptionsExtended>(Configuration.GetSection("IdentityOptions:User"));
+            services.Configure<DataProtectionTokenProviderOptions>(Configuration.GetSection("IdentityOptions:DataProtection"));
+            services.Configure<FixedSettings>(Configuration.GetSection("PlatformSettings"));
+
+            //always  return 401 instead of 302 for unauthorized  requests
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = platformOptions.ApplicationCookieName;
+                options.LoginPath = "/";
+            });
+
+            services.AddAuthorization(options =>
+            {
+                //We need this policy because it is a single way to implicitly use the three schemas (JwtBearer, ApiKey and Basic) authentication for resource based authorization.
+                var multipleSchemaAuthPolicy = new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(OpenIddictValidationAspNetCoreDefaults.AuthenticationScheme, ApiKeyAuthenticationOptions.DefaultScheme, BasicAuthenticationOptions.DefaultScheme)
+                    .RequireAuthenticatedUser()
+                    // Customer user can get token, but can't use any API where auth is needed
+                    .RequireAssertion(context =>
+                        authorizationOptions.AllowApiAccessForCustomers ||
+                        !context.User.HasClaim(OpenIddictConstants.Claims.Role, PlatformConstants.Security.SystemRoles.Customer))
+                    .Build();
+                //The good article is described the meaning DefaultPolicy and FallbackPolicy
+                //https://scottsauber.com/2020/01/20/globally-require-authenticated-users-by-default-using-fallback-policies-in-asp-net-core/
+                options.DefaultPolicy = multipleSchemaAuthPolicy;
+            });
+            // register the AuthorizationPolicyProvider which dynamically registers authorization policies for each permission defined in module manifest
+            services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
+            //Platform authorization handler for policies based on permissions
+            services.AddSingleton<IAuthorizationHandler, DefaultPermissionAuthorizationHandler>();
+
+            services.AddSingleton<IDeveloperToolRegistrar, DeveloperToolRegistrar>();
+
+            services.AddTransient<IExternalSignInService, ExternalSignInService>();
+
+            // Module assemblies are already loaded in Program.Main() via ModuleBootstrapper
+            var modules = ModuleBootstrapper.Instance.GetModules();
+
+            // Create module catalog adapter (needed by IHasModuleCatalog modules and DI)
+#pragma warning disable VC0014 // Type or member is obsolete
+            var boostOptions = Configuration.GetSection("VirtoCommerce").Get<ModuleSequenceBoostOptions>() ?? new ModuleSequenceBoostOptions();
+            var moduleCatalogAdapter = new LocalModuleCatalogAdapter(modules, boostOptions);
+#pragma warning restore VC0014 // Type or member is obsolete
+
+            // Initialize modules (IModule.Initialize registers DI services)
+            Log.ForContext<Startup>().Information("Initializing modules");
+            ModuleBootstrapper.Instance.InitializeModules(services, Configuration, WebHostEnvironment, moduleCatalogAdapter);
+
+            // Register API controllers from loaded modules
+            Log.ForContext<Startup>().Information("Registering API controllers");
+
+            foreach (var module in modules.Where(x => x.Assembly != null && x.Errors.Count == 0))
+            {
+                mvcBuilder.AddApplicationPart(module.Assembly);
+            }
+
+            // Register backward-compat DI services
+            // (needed by UseModulesAndAppsFiles, health checks, external modules, etc.)
+            services.AddSingleton(services);
+#pragma warning disable VC0014
+            services.AddSingleton<ILocalModuleCatalog>(moduleCatalogAdapter);
+            services.AddSingleton<IModuleCatalog>(sp => sp.GetRequiredService<ILocalModuleCatalog>());
+#pragma warning restore VC0014
+
+            services.AddOptions<ExternalModuleCatalogOptions>().Bind(Configuration.GetSection("ExternalModules")).ValidateDataAnnotations();
+
+            services.AddExternalModules();
+
+            // Serilog (initialize after all modules DLLs were loaded)
+            services.AddSerilog((serviceProvider, loggerConfiguration) =>
+            {
+                _ = loggerConfiguration.ReadFrom.Configuration(Configuration);
+
+                // Enrich configuration from external sources
+                var configurationServices = serviceProvider.GetService<IEnumerable<ILoggerConfigurationService>>();
+                foreach (var service in configurationServices)
+                {
+                    service.Configure(loggerConfiguration);
+                }
+                // Preserve static logger (i.e. create new logger for DI, instead of reconfiguring existing)
+                // to avoid exception about frozen logger because BuildServiceProvider is called multiple times
+            }, preserveStaticLogger: true);
+
+            // HangFire
+            services.AddHangfire(Configuration);
+
+            // Register the Swagger generator
+            services.AddSwagger(Configuration, platformOptions.UseAllOfToExtendReferenceSchemas);
+
+            var healthBuilder = services.AddHealthChecks()
+                .AddCheck<ModulesHealthChecker>("Modules health",
+                    failureStatus: HealthStatus.Unhealthy,
+                    tags: ["Modules"])
+                .AddCheck<CacheHealthChecker>("Cache health",
+                    failureStatus: HealthStatus.Degraded,
+                    tags: ["Cache"])
+                .AddCheck<RedisHealthCheck>("Redis health",
+                    failureStatus: HealthStatus.Unhealthy,
+                    tags: ["Cache"]);
+
+            var connectionString = Configuration.GetConnectionString("VirtoCommerce");
+            switch (databaseProvider)
+            {
+                case "MySql":
+                    healthBuilder.AddMySql(connectionString,
+                        name: "MySql health",
+                        failureStatus: HealthStatus.Unhealthy,
+                        tags: ["Database"]);
+                    break;
+                case "PostgreSql":
+                    healthBuilder.AddNpgSql(connectionString,
+                        name: "PostgreSql health",
+                        failureStatus: HealthStatus.Unhealthy,
+                        tags: ["Database"]);
+                    break;
+                default:
+                    healthBuilder.AddSqlServer(connectionString,
+                        name: "SQL Server health",
+                        failureStatus: HealthStatus.Unhealthy,
+                        tags: ["Database"]);
+                    break;
+            }
+
+            // Platform UI options
+            services.AddOptions<PlatformUIOptions>().Bind(Configuration.GetSection("VirtoCommerce:PlatformUI"));
+
+            // Add login page UI options
+            var loginPageUIOptions = Configuration.GetSection("LoginPageUI");
+            services.AddOptions<LoginPageUIOptions>().Bind(loginPageUIOptions);
+            services.AddHttpClient();
+        }
+
+        public static ServerCertificate GetServerCertificate(ICertificateLoader certificateLoader)
+        {
+            var result = certificateLoader.Load();
+
+            if (result.SerialNumber.EqualsIgnoreCase(ServerCertificate.SerialNumberOfVirtoPredefined) ||
+                result.Expired)
+            {
+                result = ServerCertificateService.CreateSelfSigned();
+            }
+
+            return result;
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        {
+            // Let IPlatformStartup implementations add early middleware (e.g., config refresh)
+            ModuleBootstrapper.Instance.RunConfigure(app, Configuration);
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
+            app.UseSecurityHeaders();
+
+            app.UseMiddleware<NoCacheForApiMiddleware>();
+
+            //Return all errors as Json response
+            app.UseMiddleware<ApiErrorWrappingMiddleware>();
+
+            // Engages the forwarded header support in the pipeline  (see description above)
+            app.UseForwardedHeaders();
+
+            app.UseHttpsRedirection();
+
+            // Add default MimeTypes with additional bindings
+            var fileExtensionsBindings = new Dictionary<string, string>
+            {
+                { ".liquid", "text/html"}, // Allow liquid templates
+                { ".page", "text/html"}, // Allow page builder pages
+                { ".md", "text/html"} // Allow Markdown documents
+            };
+
+            // Create default provider (with default Mime types)
+            var fileExtensionContentTypeProvider = new FileExtensionContentTypeProvider();
+
+            // Add custom bindings
+            foreach (var binding in fileExtensionsBindings)
+            {
+                fileExtensionContentTypeProvider.Mappings[binding.Key] = binding.Value;
+            }
+
+            var platformOptions = app.ApplicationServices.GetService<IOptions<PlatformOptions>>().Value;
+
+            if (platformOptions.UseResponseCompression)
+            {
+                app.UseResponseCompression();
+            }
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ContentTypeProvider = fileExtensionContentTypeProvider
+            });
+
+            app.UseRouting();
+            app.UseCookiePolicy();
+
+            //Handle all requests like a $(Platform) and Modules/$({ module.ModuleName }) as static files in correspond folder
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(WebHostEnvironment.MapPath("~/js")),
+                RequestPath = new PathString("/$(Platform)/Scripts")
+            });
+
+            // Enables static file serving with the module and apps options
+            app.UseModulesAndAppsFiles();
+
+            app.UseDefaultFiles();
+
+            app.UseAuthentication();
+
+            app.UseAccountLockoutMiddleware(platformOptions.ApplicationCookieName);
+
+            app.UseAuthorization();
+
+            app.ExecuteSynchronized(() =>
+            {
+                // This method contents will run inside critical section of instance distributed lock.
+                // Main goal is to apply the migrations (Platform, Hangfire, modules) sequentially instance by instance.
+                // This ensures only one active EF-migration ran simultaneously to avoid DB-related side effects.
+
+                // Apply platform migrations
+                app.UsePlatformMigrations(Configuration);
+
+                app.UpdateServerCertificateIfNeed(ServerCertificate);
+
+                app.UseDbTriggers();
+
+                // Register platform settings
+                app.UsePlatformSettings();
+
+                // Complete hangfire init and apply Hangfire migrations
+                app.UseHangfire(Configuration);
+
+                // Register platform permissions
+                app.UsePlatformPermissions();
+                app.UseSecurityHandlers();
+                app.UsePruneExpiredTokensJob();
+
+                var options = app.ApplicationServices.GetService<IOptions<LockoutOptionsExtended>>();
+
+                app.UseAutoAccountsLockoutJob(options.Value);
+
+                // Post-initialize all modules in dependency order
+                Log.ForContext<Startup>().Information("Post initializing modules");
+                ModuleBootstrapper.Instance.PostInitializeModules(app);
+            });
+
+            app.UseEndpoints(SetupEndpoints);
+
+            var toolRegistrar = app.ApplicationServices.GetService<IDeveloperToolRegistrar>();
+            toolRegistrar.RegisterDeveloperTool(new DeveloperToolDescriptor
+            {
+                Name = "Health",
+                Url = "/health",
+                SortOrder = 10,
+            });
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            var mvcJsonOptions = app.ApplicationServices.GetService<IOptions<MvcNewtonsoftJsonOptions>>();
+
+            //Json converter that resolves a meta-data for all incoming objects of DynamicObjectProperty type
+            //in order to be able to pass { name: "dynPropName", value: "myVal" } in the incoming requests for dynamic properties, and do not care about meta-data loading. see more details: PT-48
+            var dynamicPropertyMetaDataResolver = app.ApplicationServices.GetService<IDynamicPropertyMetaDataResolver>();
+            mvcJsonOptions.Value.SerializerSettings.Converters.Add(new DynamicObjectPropertyJsonConverter(dynamicPropertyMetaDataResolver));
+
+            DynamicPropertyMetadata.Initialize(dynamicPropertyMetaDataResolver);
+
+            //The converter is responsible for the materialization of objects, taking into account the information on overriding
+            mvcJsonOptions.Value.SerializerSettings.Converters.Add(new PolymorphJsonConverter());
+            PolymorphJsonConverter.RegisterTypeForDiscriminator(typeof(PermissionScope), nameof(PermissionScope.Type));
+
+            WriteFailedModulesToLog(logger);
+
+            logger.LogInformation("Welcome to Virto Commerce {PlatformVersion}!", typeof(Startup).Assembly.GetName().Version);
+        }
+
+        private static void WriteFailedModulesToLog(ILogger<Startup> logger)
+        {
+            foreach (var failedModule in ModuleBootstrapper.Instance.GetFailedModules())
+            {
+                logger.LogError("Could not load module {ModuleId} {ModuleVersion}. Error: {ErrorMessage}",
+                    failedModule.Id, failedModule.Version, string.Join(";", failedModule.Errors));
+            }
+        }
+
+        private static void SetupEndpoints(IEndpointRouteBuilder endpoints)
+        {
+            endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            //Setup SignalR hub
+            endpoints.MapHub<PushNotificationHub>("/pushNotificationHub");
+
+            endpoints.MapHealthChecks("/health", new HealthCheckOptions
+            {
+                ResponseWriter = async (context, report) =>
+                {
+                    context.Response.ContentType = "application/json; charset=utf-8";
+
+                    var reportJson =
+                        JsonConvert.SerializeObject(report.Entries, Formatting.Indented, new StringEnumConverter());
+                    await context.Response.WriteAsync(reportJson);
+                }
+            });
+        }
+    }
+}

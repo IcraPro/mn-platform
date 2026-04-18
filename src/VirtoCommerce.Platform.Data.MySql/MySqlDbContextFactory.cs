@@ -1,0 +1,63 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using VirtoCommerce.Platform.Data.Repositories;
+using VirtoCommerce.Platform.Security.Model.OpenIddict;
+using VirtoCommerce.Platform.Security.Repositories;
+
+namespace VirtoCommerce.Platform.Data.MySql
+{
+    public class MySqlDbContextFactory : IDesignTimeDbContextFactory<PlatformDbContext>,
+        IDesignTimeDbContextFactory<SecurityDbContext>
+    {
+        PlatformDbContext IDesignTimeDbContextFactory<PlatformDbContext>.CreateDbContext(string[] args)
+        {
+            var builder = new DbContextOptionsBuilder<PlatformDbContext>();
+            var connectionString = args.Any() ? args[0] : "server=localhost;user=root;password=virto;database=VirtoCommerce3;";
+            var serverVersion = args.Length >= 2 ? args[1] : null;
+
+            builder.UseMySql(
+                connectionString,
+                ResolveServerVersion(serverVersion, connectionString),
+                db => db
+                    .MigrationsAssembly(typeof(MySqlDataAssemblyMarker).Assembly.GetName().Name));
+
+            return new PlatformDbContext(builder.Options);
+        }
+
+        SecurityDbContext IDesignTimeDbContextFactory<SecurityDbContext>.CreateDbContext(string[] args)
+        {
+            var builder = new DbContextOptionsBuilder<SecurityDbContext>();
+            var connectionString = args.Any() ? args[0] : "server=localhost;user=root;password=virto;database=VirtoCommerce3;";
+            var serverVersion = args.Length >= 2 ? args[1] : null;
+
+            builder.UseMySql(
+                connectionString,
+                ResolveServerVersion(serverVersion, connectionString),
+                db => db
+                    .MigrationsAssembly(typeof(MySqlDataAssemblyMarker).Assembly.GetName().Name));
+
+            builder.UseOpenIddict<VirtoOpenIddictEntityFrameworkCoreApplication,
+                VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                VirtoOpenIddictEntityFrameworkCoreScope,
+                VirtoOpenIddictEntityFrameworkCoreToken,
+                string>();
+
+            return new SecurityDbContext(builder.Options);
+        }
+
+
+
+        private static ServerVersion ResolveServerVersion(string? serverVersion, string connectionString)
+        {
+            if (serverVersion == "AutoDetect")
+            {
+                return ServerVersion.AutoDetect(connectionString);
+            }
+            else if (serverVersion != null)
+            {
+                return ServerVersion.Parse(serverVersion);
+            }
+            return new MySqlServerVersion(new Version(5, 7));
+        }
+    }
+}
